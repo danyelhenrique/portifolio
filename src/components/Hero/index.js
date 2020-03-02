@@ -8,8 +8,7 @@ import background from "../../assets/images/banner.jpg";
 
 export default function Hero() {
   return (
-    <section className="hero">
-      <img src={background} />
+    <section className="hero" style={{ backgroundImage: `url(${background})` }}>
       <div className="title">
         <h1>Danyel Full Stack Developer</h1>
       </div>

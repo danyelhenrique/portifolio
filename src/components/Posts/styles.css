@@ -1,0 +1,30 @@
+section.post-container {
+  height: 1000vh;
+  width: 100%;
+
+  display: -ms-flexbox;
+  -ms-flex-pack: center;
+  -ms-flex-align: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -moz-justify-content: center;
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  border-top: 0;
+  min-height: 100vh;
+  height: 100vh;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
