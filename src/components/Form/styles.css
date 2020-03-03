@@ -1,0 +1,32 @@
+.contact-container-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  /* height: 100%; */
+  padding: 0 20px;
+
+  background: #f44336;
+
+  border-radius: 5px;
+}
+
+label {
+  position: relative;
+}
+
+.coisa {
+  font-size: 0.8rem;
+  transform: translateY(-10px);
+  transition: transform 1s ease;
+  z-index: 90;
+}
+
+label {
+  position: relative;
+}
+#coisas2 {
+  position: absolute;
+  transition: all 1s ease;
+}
