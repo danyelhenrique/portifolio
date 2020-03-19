@@ -1,6 +1,7 @@
-@charset "UTF-8";
-@import url("https://fonts.googleapis.com/css?family=Lobster|Open+Sans:300,400,600,700,800");
+import { createGlobalStyle } from "styled-components";
 
+export default createGlobalStyle`
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300, 400,600,700&display=swap');
 /* Reset */
 
 html,
@@ -55,6 +56,7 @@ li,
 fieldset,
 form,
 label,
+button,
 legend,
 table,
 caption,
@@ -375,3 +377,6 @@ code {
 hr {
   border-bottom-color: rgba(144, 144, 144, 0.25);
 }
+
+
+`;

@@ -3,7 +3,15 @@
   flex-direction: column;
   width: 25%;
   height: 100vh;
-  background: #3f51b5;
+  /* background: #3f51b5; */
+  background: linear-gradient(
+    to right top,
+    #051937,
+    #181f36,
+    #232535,
+    #2c2c34,
+    #333333
+  );
   padding: 20px;
   /* max-width: 400px; */
   /* min-width: 400px; */
@@ -15,11 +23,33 @@
 
 .aside-tag {
   width: 100%;
+  height: 60px;
   margin: 5px 0;
   text-transform: uppercase;
   font-weight: bold;
   color: #fff;
   font-size: 1.2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.aside-tag button {
+  height: 100%;
+  width: 25%;
+  max-width: 100px;
+  max-height: 100px;
+
+  background: transparent;
+  border: none;
+
+  cursor: pointer;
+}
+
+.aside-tag button img {
+  border-radius: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 .aside-container form {

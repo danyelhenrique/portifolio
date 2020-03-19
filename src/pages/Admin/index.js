@@ -1,11 +1,15 @@
 import React from "react";
 import Aside from "../../components/Aside";
+import PostsEdit from "../../components/PostsEdit";
+import Main from "../../components/Main";
 
+import "./styles.css";
 function Admin() {
   return (
-    <div className="container-admin">
+    <Main>
       <Aside />
-    </div>
+      <PostsEdit />
+    </Main>
   );
 }
 

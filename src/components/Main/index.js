@@ -1,7 +1,6 @@
 import React from "react";
-
-import "./styles.css";
+import { MainContainer } from "./styles";
 
 export default function Main({ children }) {
-  return <main className="main">{children}</main>;
+  return <MainContainer>{children}</MainContainer>;
 }

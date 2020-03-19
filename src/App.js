@@ -1,19 +1,20 @@
 import React from "react";
-import Nav from "../src/components/Nav";
-import Main from "../src/components/Main";
+import { BrowserRouter } from "react-router-dom";
+import GlobalStyle from "./global/styles";
 
-import Home from "./pages/Home";
-import Admin from "./pages/Admin";
+import Route from "./routes";
+
+import Nav from "../src/components/Nav";
 
 import "../src/assets/css/font-awesome.min.css";
-import "./reset.css";
 
 function App() {
   return (
-    <Main>
+    <BrowserRouter>
+      <GlobalStyle />
       <Nav />
-      <Admin />
-    </Main>
+      <Route />
+    </BrowserRouter>
   );
 }
 
