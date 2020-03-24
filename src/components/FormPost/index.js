@@ -1,15 +1,33 @@
-import React from "react";
+import React, { useContext } from "react";
+import api from "../../services/api";
 
 import Form from "../Unform/Form";
 import Input from "../Unform/Input";
 
+import { ProjectContext } from "../../context/modules/project";
 import { Container } from "./styles";
 
 export default function FormPost() {
-  function handleForm(data) {}
+  const [state] = useContext(ProjectContext);
+
+  async function handleForm(data) {
+    const postOrPut = state.isEdit ? "put" : "post";
+    const url = state.isEdit
+      ? `/users/projects/${state.project_item._id}`
+      : "/users/projects";
+
+    const tag = data.tag
+      .trim()
+      .toLowerCase()
+      .split(",");
+
+    const post = { ...data, tag };
+    const response = await api[postOrPut](url, post);
+  }
+  console.log(state.project_item);
   return (
     <Container>
-      <Form handleForm={handleForm}>
+      <Form handleForm={handleForm} initialData={state.project_item}>
         <label htmlFor="background_url">
           Background URL :
           <Input
@@ -46,7 +64,7 @@ export default function FormPost() {
           <Input
             name="github_url"
             type="text"
-            id="github_ul"
+            id="github_url"
             autoComplete="off"
           />
         </label>

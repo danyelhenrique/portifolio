@@ -1,42 +1,43 @@
 import React, { useState } from "react";
 
-// import { Container } from './styles';
-import "./styles.css";
+import { NavContainer, Button } from "./styles";
+
+import { MdEmail, MdPhoneIphone, MdReorder, MdClose } from "react-icons/md";
+import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 export default function Nav() {
   const [openMenu, setOpenMenu] = useState(false);
   return (
     <>
-      <button
-        type="button"
-        className="toggle-menu"
-        onClick={() => setOpenMenu(true)}
-      />
-      <nav className={`nav ${!openMenu ? "close" : ""}`}>
-        <button
-          type="button"
-          className="toggle-menu-close"
-          onClick={() => setOpenMenu(false)}
-        />
+      {!openMenu && (
+        <Button type="button" onClick={() => setOpenMenu(true)}>
+          <MdReorder color="#fff" size={24} />
+        </Button>
+      )}
+      <NavContainer openMenu={openMenu}>
+        <Button type="button" onClick={() => setOpenMenu(false)}>
+          <MdClose color="#fff" size={24} />
+        </Button>
+
         <ul>
           <li>
-            <div className="icon-menu fa fa-mobile-phone" />
+            <MdPhoneIphone size={24} color="#fff" />
             <a href="#">Contact</a>
           </li>
           <li>
-            <div className="icon-menu fa fa-github" />
+            <FaGithub size={24} color="#fff" />
             <a href="#">GitHub</a>
           </li>
           <li>
-            <div className="icon-menu fa fa-linkedin" />
+            <FaLinkedinIn size={24} color="#fff" />
             <a href="#">Linkedin</a>
           </li>
           <li>
-            <div className="icon-menu fa fa-mail-forward" />
+            <MdEmail size={24} color="#fff" />
             <a href="#">Email</a>
           </li>
         </ul>
-      </nav>
+      </NavContainer>
     </>
   );
 }

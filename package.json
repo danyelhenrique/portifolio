@@ -19,6 +19,7 @@
     "react-router-dom": "^5.1.2",
     "react-rte": "^0.16.1",
     "react-scripts": "3.4.0",
+    "react-toast-notifications": "^2.4.0",
     "styled-components": "^5.0.1"
   },
   "scripts": {

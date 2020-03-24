@@ -1,8 +1,12 @@
 import React from "react";
 
-// import { Container } from './styles';
-import "./styles.css";
+import { MdExpandMore } from "react-icons/md";
+import { Next } from "./styles";
 
 export default function GoTo({ go }) {
-  return <a href={go} className="more" />;
+  return (
+    <Next href={go}>
+      <MdExpandMore size={40} color="#ff" />
+    </Next>
+  );
 }

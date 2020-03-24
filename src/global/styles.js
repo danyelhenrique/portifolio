@@ -92,6 +92,7 @@ video {
   font-size: 100%;
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
   vertical-align: baseline;
+  text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

@@ -17,6 +17,11 @@ export const Container = styled.aside`
   background-size: 100% 100%;
   background-repeat: no-repeat;
   position: relative;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
 `;
 
 export const UserModal = styled.div`
