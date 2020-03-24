@@ -1,12 +1,13 @@
 import React from "react";
 
-import "./styles.css";
+import FormPost from "../FormPost";
+import { Container } from "./styles";
 
 function PostsEdit() {
   return (
-    <section className="admin-post">
-      <div className="tag-list" />
-    </section>
+    <Container>
+      <FormPost />
+    </Container>
   );
 }
 

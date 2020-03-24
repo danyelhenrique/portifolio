@@ -1,8 +1,21 @@
 import React, { useState } from "react";
 
 import UserConfingModal from "../Modals/UserConfig";
+import { MdSearch, MdChevronRight } from "react-icons/md";
 
-import "./styles.css";
+// import "./styles.css";
+import {
+  Container,
+  UserModal,
+  Form,
+  Search,
+  Nav,
+  BorderTop,
+  BorderBottom,
+  BorderLeft,
+  BorderRight,
+  AsideItem
+} from "./styles";
 
 import avatar from "../../assets/images/avatar.jpg";
 
@@ -14,73 +27,78 @@ function Aside() {
 
   return (
     <>
-      <aside className="aside-container">
-        <div className="aside-tag">
+      <Container className="aside-container">
+        <UserModal className="aside-tag">
           <button type="button" onClick={openModal}>
             <img src={avatar} alt="avatar" />
           </button>
-        </div>
-        <form>
-          <input placeholder="Seach" />
-          <button type="submit">ICON</button>
-        </form>
-        <nav className="aside-nav">
+        </UserModal>
+        <Form>
+          <input placeholder="Search" />
+          <Search type="submit">
+            <MdSearch size={30} />
+          </Search>
+        </Form>
+        <Nav className="aside-nav">
           <ul>
             <li>
-              <div className="icon">></div>
+              <MdChevronRight size={20} />
 
-              <div className="aside-btn">
+              <AsideItem className="aside-btn">
                 <button onClick={e => console.log(e)}>
                   <span>React</span>
-                  <div className="border top" />
-                  <div className="border bottom" />
-                  <div className="border left" />
-                  <div className="border right" />
+                  <BorderTop className="border top" />
+                  <BorderBottom className="border bottom" />
+                  <BorderLeft className="border left" />
+                  <BorderRight className="border right" />
                 </button>
-              </div>
+              </AsideItem>
             </li>
             <li>
-              <div className="icon">></div>
-              <div className="aside-btn">
+              <MdChevronRight size={20} />
+
+              <AsideItem className="aside-btn">
                 <button onClick={e => console.log(e)}>
                   <span>Node JS</span>
 
-                  <div className="border top" />
-                  <div className="border bottom" />
-                  <div className="border left" />
-                  <div className="border right" />
+                  <BorderTop className="border top" />
+                  <BorderBottom className="border bottom" />
+                  <BorderLeft className="border left" />
+                  <BorderRight className="border right" />
                 </button>
-              </div>
+              </AsideItem>
             </li>
             <li>
-              <div className="icon">></div>
-              <div className="aside-btn">
+              <MdChevronRight size={20} />
+
+              <AsideItem className="aside-btn">
                 <button onClick={e => console.log(e)}>
                   <span>React Native</span>
 
-                  <div className="border top" />
-                  <div className="border bottom" />
-                  <div className="border left" />
-                  <div className="border right" />
+                  <BorderTop className="border top" />
+                  <BorderBottom className="border bottom" />
+                  <BorderLeft className="border left" />
+                  <BorderRight className="border right" />
                 </button>
-              </div>
+              </AsideItem>
             </li>
             <li>
-              <div className="icon">></div>
-              <div className="aside-btn">
+              <MdChevronRight size={20} />
+
+              <AsideItem className="aside-btn">
                 <button onClick={e => console.log(e)}>
                   <span>GraghpQl</span>
 
-                  <div className="border top" />
-                  <div className="border bottom" />
-                  <div className="border left" />
-                  <div className="border right" />
+                  <BorderTop className="border top" />
+                  <BorderBottom className="border bottom" />
+                  <BorderLeft className="border left" />
+                  <BorderRight className="border right" />
                 </button>
-              </div>
+              </AsideItem>
             </li>
           </ul>
-        </nav>
-      </aside>
+        </Nav>
+      </Container>
       <UserConfingModal />
     </>
   );

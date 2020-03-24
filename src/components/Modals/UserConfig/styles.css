@@ -9,4 +9,6 @@
   left: 85%;
   /* transform: translateX(-50%); */
   position: fixed;
+
+  display: none;
 }

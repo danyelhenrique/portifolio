@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300, 400,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap');
 /* Reset */
 
 html,
@@ -152,8 +152,8 @@ body {
 }
 
 body {
-  background-color: #333333;
-  color: rgba(255, 255, 255, 0.75);
+  background: linear-gradient( to right top, #051937, #181f36, #232535, #2c2c34, #333333 );
+  color: #fff;
 }
 
 body,

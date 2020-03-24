@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import GlobalStyle from "./global/styles";
+// import "draft-js/dist/Draft.css";
 
 import Route from "./routes";
 
