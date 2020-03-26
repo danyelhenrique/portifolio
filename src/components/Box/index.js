@@ -1,16 +1,13 @@
-import React, { useContext } from "react";
-
+import React from "react";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import { Article, Header, Footer } from "./styles";
 import { MdModeEdit } from "react-icons/md";
 
-import { ProjectContext } from "../../context/modules/project";
-
 export default function Posts({ project }) {
   let history = useHistory();
-
-  const [, dispatch] = useContext(ProjectContext);
+  const dispatch = useDispatch();
 
   function handleClick(project) {
     const payload = {

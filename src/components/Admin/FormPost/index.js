@@ -1,16 +1,16 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useToasts } from "react-toast-notifications";
+import { useSelector } from "react-redux";
 
 import api from "../../../services/api";
 
 import Form from "../../Unform/Form";
 import Input from "../../Unform/Input";
 
-import { ProjectContext } from "../../../context/modules/project";
 import { Container, ToastMessage } from "./styles";
 
 export default function FormPost() {
-  const [state] = useContext(ProjectContext);
+  const state = useSelector(state => state.project);
 
   const { addToast, removeToast } = useToasts();
 

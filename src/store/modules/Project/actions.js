@@ -18,10 +18,11 @@ export function projectFailure() {
   };
 }
 
-export function projectsRequest(payload) {
+// -------------------------------------- //
+
+export function projectsRequest() {
   return {
-    type: "@PROJECT/PROJECTS_REQUEST",
-    payload
+    type: "@PROJECT/PROJECTS_REQUEST"
   };
 }
 

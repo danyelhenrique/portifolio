@@ -15,4 +15,4 @@ function* updateProfile() {
   }
 }
 
-export default all([takeLatest("@user/UPDATE_PROFILE_REQUEST", updateProfile)]);
+export default all([takeLatest("@PROJECT/PROJECTS_REQUEST", updateProfile)]);

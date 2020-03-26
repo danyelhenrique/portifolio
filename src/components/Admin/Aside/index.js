@@ -26,8 +26,8 @@ function Aside() {
 
   return (
     <>
-      <Container className="aside-container">
-        <UserModal className="aside-tag">
+      <Container>
+        <UserModal>
           <button type="button" onClick={openModal}>
             <img src={avatar} alt="avatar" />
           </button>
@@ -38,60 +38,60 @@ function Aside() {
             <MdSearch size={30} />
           </Search>
         </Form>
-        <Nav className="aside-nav">
+        <Nav>
           <ul>
             <li>
               <MdChevronRight size={20} />
 
-              <AsideItem className="aside-btn">
+              <AsideItem>
                 <button onClick={e => console.log(e)}>
                   <span>React</span>
-                  <BorderTop className="border top" />
-                  <BorderBottom className="border bottom" />
-                  <BorderLeft className="border left" />
-                  <BorderRight className="border right" />
+                  <BorderTop />
+                  <BorderBottom />
+                  <BorderLeft />
+                  <BorderRight />
                 </button>
               </AsideItem>
             </li>
             <li>
               <MdChevronRight size={20} />
 
-              <AsideItem className="aside-btn">
+              <AsideItem>
                 <button onClick={e => console.log(e)}>
                   <span>Node JS</span>
 
-                  <BorderTop className="border top" />
-                  <BorderBottom className="border bottom" />
-                  <BorderLeft className="border left" />
-                  <BorderRight className="border right" />
+                  <BorderTop />
+                  <BorderBottom />
+                  <BorderLeft />
+                  <BorderRight />
                 </button>
               </AsideItem>
             </li>
             <li>
               <MdChevronRight size={20} />
 
-              <AsideItem className="aside-btn">
+              <AsideItem>
                 <button onClick={e => console.log(e)}>
                   <span>React Native</span>
 
-                  <BorderTop className="border top" />
-                  <BorderBottom className="border bottom" />
-                  <BorderLeft className="border left" />
-                  <BorderRight className="border right" />
+                  <BorderTop />
+                  <BorderBottom />
+                  <BorderLeft />
+                  <BorderRight />
                 </button>
               </AsideItem>
             </li>
             <li>
               <MdChevronRight size={20} />
 
-              <AsideItem className="aside-btn">
+              <AsideItem>
                 <button onClick={e => console.log(e)}>
                   <span>GraghpQl</span>
 
-                  <BorderTop className="border top" />
-                  <BorderBottom className="border bottom" />
-                  <BorderLeft className="border left" />
-                  <BorderRight className="border right" />
+                  <BorderTop />
+                  <BorderBottom />
+                  <BorderLeft />
+                  <BorderRight />
                 </button>
               </AsideItem>
             </li>

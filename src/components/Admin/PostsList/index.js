@@ -1,15 +1,14 @@
-import React, { useContext } from "react";
-
-import { ProjectContext } from "../../../context/modules/project";
+import React from "react";
+import { useSelector } from "react-redux";
 
 import { Container, Project, Image, Content } from "./styles";
 
 export default function PostList() {
-  const [state] = useContext(ProjectContext);
+  const { projects } = useSelector(state => state.project);
 
   return (
     <Container>
-      {state.projects.map(project => (
+      {projects.map(project => (
         <Project>
           <Image>
             <img src={project.background_url} alt="backround" />
