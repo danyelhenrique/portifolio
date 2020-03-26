@@ -4,7 +4,7 @@ import api from "../../../services/api";
 const INITIAL_STATE = {
   isLoading: true,
   isEdit: false,
-  project: [],
+  projects: [],
   project_item: {
     _id: null,
     background_url: "",

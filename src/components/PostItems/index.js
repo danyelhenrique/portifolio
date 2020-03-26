@@ -1,14 +1,11 @@
 import React from "react";
-import "./styles.css";
+
+import { Container } from "./styles";
 
 export default function PostItems({ id, img, children }) {
   return (
-    <div
-      className="post-container-item"
-      id={id}
-      style={{ backgroundImage: `url(${img})` }}
-    >
+    <Container id={id} background={img}>
       {children}
-    </div>
+    </Container>
   );
 }

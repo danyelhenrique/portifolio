@@ -1,14 +1,36 @@
 import React, { useContext } from "react";
-import api from "../../services/api";
+import { useToasts } from "react-toast-notifications";
 
-import Form from "../Unform/Form";
-import Input from "../Unform/Input";
+import api from "../../../services/api";
 
-import { ProjectContext } from "../../context/modules/project";
-import { Container } from "./styles";
+import Form from "../../Unform/Form";
+import Input from "../../Unform/Input";
+
+import { ProjectContext } from "../../../context/modules/project";
+import { Container, ToastMessage } from "./styles";
 
 export default function FormPost() {
   const [state] = useContext(ProjectContext);
+
+  const { addToast, removeToast } = useToasts();
+
+  function handleToast() {
+    let toastyId;
+    const msg = (
+      <ToastMessage>
+        <span>Project Save</span>
+        <button type="button" onClick={() => handleRemoveToast(toastyId)}>
+          CLOSE
+        </button>
+      </ToastMessage>
+    );
+
+    addToast(msg, {}, id => (toastyId = id));
+  }
+
+  function handleRemoveToast(toastyId) {
+    removeToast(toastyId);
+  }
 
   async function handleForm(data) {
     const postOrPut = state.isEdit ? "put" : "post";
@@ -23,8 +45,9 @@ export default function FormPost() {
 
     const post = { ...data, tag };
     const response = await api[postOrPut](url, post);
+    handleToast();
   }
-  console.log(state.project_item);
+
   return (
     <Container>
       <Form handleForm={handleForm} initialData={state.project_item}>

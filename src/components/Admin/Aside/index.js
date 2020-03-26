@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 
-import UserConfingModal from "../Modals/UserConfig";
+import UserConfingModal from "../../Modals/UserConfig";
 import { MdSearch, MdChevronRight } from "react-icons/md";
 
-// import "./styles.css";
+import avatar from "../../../assets/images/avatar.jpg";
+
 import {
   Container,
   UserModal,
@@ -16,8 +17,6 @@ import {
   BorderRight,
   AsideItem
 } from "./styles";
-
-import avatar from "../../assets/images/avatar.jpg";
 
 function Aside() {
   const [modal, setModal] = useState(true);
