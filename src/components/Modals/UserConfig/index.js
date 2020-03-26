@@ -1,33 +1,56 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 import Form from "../../Unform/Form";
 import Input from "../../Unform/Input";
 
-import { Container, Avatar } from "./styles";
+import { MdClose } from "react-icons/md";
 
-function UserConfig() {
-  const [image, setImage] = useState();
+import { Section, Container, Avatar, Button } from "./styles";
+
+function UserConfig({ isOpen, handleModal }) {
+  const { user } = useSelector(state => state.user);
+
+  useEffect(() => {
+    function overFllowBody() {
+      const isHidden = !isOpen ? "" : "hidden";
+      document.body.style.overflow = isHidden;
+    }
+    overFllowBody();
+    return () => overFllowBody();
+  }, [isOpen]);
 
   return (
-    <Container>
-      <Avatar>
-        <img src={image} />
-      </Avatar>
-      <Form>
-        <label htmlFor="name">
-          name:
-          <Input type="text" name="name" id="name" />
-        </label>
-        <label htmlFor="email">
-          email:
-          <Input type="email" name="email" id="email" autoComplete="off" />
-        </label>
-        <label htmlFor="password">
-          password:
-          <Input type="password" name="password" id="password" />
-        </label>
-      </Form>
-    </Container>
+    <Section isOpen={isOpen}>
+      <Container>
+        <Avatar>
+          <button type="button" onClick={handleModal}>
+            <MdClose size={32} color="#000" />
+          </button>
+          <span>Danyel henrique </span>
+          <img src={user.avatar_url || ""} />
+        </Avatar>
+        <Form>
+          <label htmlFor="avatar">
+            avatar_url:
+            <Input type="avatar" name="avatar" id="avatar" autoComplete="off" />
+          </label>
+          <label htmlFor="name">
+            name:
+            <Input type="name" name="name" id="name" autoComplete="off" />
+          </label>
+          <label htmlFor="email">
+            email:
+            <Input type="email" name="email" id="email" autoComplete="off" />
+          </label>
+          <label htmlFor="password">
+            password:
+            <Input type="password" name="password" id="password" />
+          </label>
+          <Button type="submit">Save</Button>
+        </Form>
+      </Container>
+    </Section>
   );
 }
 

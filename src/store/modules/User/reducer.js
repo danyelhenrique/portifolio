@@ -1,4 +1,12 @@
-const INITIAL_STATE = {};
+const INITIAL_STATE = {
+  user: {
+    id: "",
+    name: "",
+    avatar_url: "",
+    email: ""
+  },
+  payload: null
+};
 
 function userReducer(state = INITIAL_STATE, action) {
   switch (action.type) {

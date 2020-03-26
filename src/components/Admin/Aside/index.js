@@ -19,8 +19,8 @@ import {
 } from "./styles";
 
 function Aside() {
-  const [modal, setModal] = useState(true);
-  function openModal() {
+  const [modal, setModal] = useState(false);
+  function handleModal() {
     setModal(!modal);
   }
 
@@ -28,7 +28,7 @@ function Aside() {
     <>
       <Container>
         <UserModal>
-          <button type="button" onClick={openModal}>
+          <button type="button" onClick={handleModal}>
             <img src={avatar} alt="avatar" />
           </button>
         </UserModal>
@@ -98,7 +98,7 @@ function Aside() {
           </ul>
         </Nav>
       </Container>
-      <UserConfingModal />
+      <UserConfingModal isOpen={modal} handleModal={handleModal} />
     </>
   );
 }
