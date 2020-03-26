@@ -11,10 +11,10 @@ export default function Posts({ project }) {
 
   function handleClick(project) {
     const payload = {
-      project_item: project,
+      project,
       isEdit: true
     };
-    dispatch({ type: "@Project/EDIT_PROJECT", payload });
+    dispatch({ type: "@PROJECT/PROJECT_EDIT", payload });
     history.push("/admin");
   }
 

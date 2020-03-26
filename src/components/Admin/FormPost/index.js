@@ -1,8 +1,11 @@
 import React from "react";
 import { useToasts } from "react-toast-notifications";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
-import api from "../../../services/api";
+import {
+  projectStoreRequest,
+  projectUpdateRequest
+} from "../../../store/modules/Project/actions";
 
 import Form from "../../Unform/Form";
 import Input from "../../Unform/Input";
@@ -11,6 +14,7 @@ import { Container, ToastMessage } from "./styles";
 
 export default function FormPost() {
   const state = useSelector(state => state.project);
+  const dispatch = useDispatch();
 
   const { addToast, removeToast } = useToasts();
 
@@ -33,19 +37,13 @@ export default function FormPost() {
   }
 
   async function handleForm(data) {
-    const postOrPut = state.isEdit ? "put" : "post";
-    const url = state.isEdit
-      ? `/users/projects/${state.project_item._id}`
-      : "/users/projects";
+    const storeOrUpdate = state.isEdit
+      ? projectUpdateRequest
+      : projectStoreRequest;
 
-    const tag = data.tag
-      .trim()
-      .toLowerCase()
-      .split(",");
-
-    const post = { ...data, tag };
-    const response = await api[postOrPut](url, post);
+    const payload = { ...state.project_item, ...data };
     handleToast();
+    dispatch(storeOrUpdate(payload));
   }
 
   return (
@@ -95,7 +93,7 @@ export default function FormPost() {
           Tag :
           <Input name="tag" type="text" id="tag" autoComplete="off" />
         </label>
-        <button type="submit">Save</button>
+        <button type="submit">{state.isEdit ? "UPDATE" : "SAVE"}</button>
       </Form>
     </Container>
   );

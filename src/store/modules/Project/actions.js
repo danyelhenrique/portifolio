@@ -1,20 +1,20 @@
-export function projectRequest(payload) {
+export function projectStoreRequest(payload) {
   return {
-    type: "@PROJECT/PROJECT_REQUEST",
+    type: "@PROJECT/PROJECT_STORE_REQUEST",
     payload
   };
 }
 
-export function projectSuccess(payload) {
+export function projectStoreSuccess(payload) {
   return {
-    type: "@PROJECT/PROJECT_SUCCESS",
+    type: "@PROJECT/PROJECT_STORE_SUCCESS",
     payload
   };
 }
 
-export function projectFailure() {
+export function projectStoreFailure() {
   return {
-    type: "@PROJECT/PROJECT_FAILURE"
+    type: "@PROJECT/PROJECT_STORE_FAILURE"
   };
 }
 
@@ -36,5 +36,36 @@ export function projectsSuccess(payload) {
 export function projectsFailure() {
   return {
     type: "@PROJECT/PROJECTS_FAILURE"
+  };
+}
+
+// -------------------------------------- //
+
+export function projectUpdateRequest(payload) {
+  return {
+    type: "@PROJECT/PROJECT_UPDATE_REQUEST",
+    payload
+  };
+}
+
+export function projectUpdateSuccess(payload) {
+  return {
+    type: "@PROJECT/PROJECT_UPDATE_SUCCESS",
+    payload
+  };
+}
+
+export function projectUpdateFailure() {
+  return {
+    type: "@PROJECT/PROJECT_UPDATE_FAILURE"
+  };
+}
+
+// ------------------------------------ //
+
+export function projectEdit(payload) {
+  return {
+    type: "@PROJECT/PROJECT_EDIT",
+    payload
   };
 }
