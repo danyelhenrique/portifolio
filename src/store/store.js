@@ -1,12 +1,20 @@
 import { createStore, compose, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
+import storage from "redux-persist/lib/storage";
+import { persistReducer, persistStore } from "redux-persist";
 
 import "../config/Reactotron";
 
-import rootRducer from "./rootReducer";
+import rootReducer from "./rootReducer";
 import rootSaga from "./rootSaga";
 
 const middlewares = [];
+
+const persistConfig = {
+  key: "root",
+  storage,
+  whitelist: ["user", "session"]
+};
 
 const sagaMonitor =
   process.env.NODE_ENV === "development"
@@ -14,6 +22,7 @@ const sagaMonitor =
     : null;
 
 const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 middlewares.push(sagaMiddleware);
 
@@ -22,8 +31,9 @@ const composer =
     ? compose(applyMiddleware(...middlewares), console.tron.createEnhancer())
     : compose(applyMiddleware(...middlewares));
 
-const store = createStore(rootRducer, composer);
+const store = createStore(persistedReducer, composer);
+const persistor = persistStore(store);
 
 sagaMiddleware.run(rootSaga);
 
-export { store };
+export { store, persistor };

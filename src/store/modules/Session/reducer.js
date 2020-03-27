@@ -1,23 +1,16 @@
 import produce from "immer";
 
 const INITIAL_STATE = {
-  user: {
-    id: "",
-    name: "",
-    avatar_url: "",
-    email: ""
-  }
+  token: null,
+  isloggedin: false
 };
 
 function userReducer(state = INITIAL_STATE, action) {
   return produce(state, draftState => {
     switch (action.type) {
-      case "@USER/USER_UPDATE_SUCCESS": {
-        draftState.user = action.payload.user;
-        break;
-      }
       case "@SESSION/SESSION_STORE_SUCCESS": {
-        draftState.user = action.payload.user;
+        draftState.token = action.payload.token;
+        draftState.isloggedin = true;
         break;
       }
       default:

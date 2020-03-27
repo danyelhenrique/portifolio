@@ -35,7 +35,7 @@ export const Form = styled(UForm)`
     }
   }
 
-  button {
+  /* button {
     text-transform: uppercase;
     font-weight: bold;
     padding: 30px 150px;
@@ -45,5 +45,5 @@ export const Form = styled(UForm)`
 
     color: #fff;
     cursor: pointer;
-  }
+  } */
 `;
