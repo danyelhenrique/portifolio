@@ -20,12 +20,40 @@ export const Project = styled.div`
   margin: 5px 0;
 
   text-align: center;
+
+  height: 250px;
 `;
 
 export const Image = styled.div`
+  position: relative;
+  height: 100%;
+
   img {
-    height: 250px;
+    height: 100%;
     width: 250px;
+    border-radius: 5px;
+  }
+
+  :hover {
+    button {
+      opacity: 1;
+    }
+  }
+
+  button {
+    opacity: 0;
+    background: none;
+    border: none;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+
     border-radius: 5px;
   }
 `;

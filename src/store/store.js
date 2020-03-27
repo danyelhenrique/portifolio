@@ -11,7 +11,7 @@ import rootSaga from "./rootSaga";
 const middlewares = [];
 
 const persistConfig = {
-  key: "root",
+  key: "portifolio",
   storage,
   whitelist: ["user", "session"]
 };
