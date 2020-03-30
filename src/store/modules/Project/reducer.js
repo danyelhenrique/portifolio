@@ -3,15 +3,17 @@ import produce from "immer";
 const INITIAL_STATE = {
   isLoading: true,
   isEdit: false,
+  has_search_item: false,
+  search_items: [],
   projects: [],
+  tags: [],
   project_item: {
     _id: null,
     background_url: "",
     title: "",
     description: "",
     deploy_url: "",
-    github_url: "",
-    tag: []
+    github_url: ""
   }
 };
 
@@ -19,7 +21,11 @@ function projectReducer(state = INITIAL_STATE, action) {
   return produce(state, draftState => {
     switch (action.type) {
       case "@PROJECT/PROJECTS_SUCCESS": {
+        const { available_tags } = action.payload;
+
         draftState.projects = action.payload.projects;
+        draftState.tags = Object.keys(available_tags);
+
         draftState.isLoading = action.payload.isLoading;
         break;
       }
@@ -34,6 +40,22 @@ function projectReducer(state = INITIAL_STATE, action) {
         );
 
         draftState.projects[index] = action.payload.project;
+        break;
+      }
+      case "@PROJECT/PROJECT_SEARCH_SUCCESS": {
+        draftState.has_search_item = true;
+        draftState.search_items = action.payload.project;
+        break;
+      }
+      case "@PROJECT/PROJECT_SEARCH_FAILURE": {
+        draftState.has_search_item = false;
+        draftState.search_items = [];
+        break;
+      }
+      case "@PROJECT/PROJECT_SEARCH_CANCEL": {
+        draftState.has_search_item = false;
+        draftState.search_items = [];
+
         break;
       }
       case "@PROJECT/PROJECT_EDIT": {

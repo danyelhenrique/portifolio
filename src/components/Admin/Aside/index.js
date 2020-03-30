@@ -1,27 +1,27 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { searchTag } from "../../../store/modules/Tags/actions";
 
+import AsideTags from "../AsideTags";
 import UserConfingModal from "../../Modals/UserConfig";
+import Form from "../../Unform/Form";
+
 import { MdSearch, MdChevronRight } from "react-icons/md";
 
-import avatar from "../../../assets/images/avatar.jpg";
-
-import {
-  Container,
-  UserModal,
-  Form,
-  Search,
-  Nav,
-  BorderTop,
-  BorderBottom,
-  BorderLeft,
-  BorderRight,
-  AsideItem
-} from "./styles";
+import { Container, UserModal, Search, Nav } from "./styles";
 
 function Aside() {
   const [modal, setModal] = useState(false);
+  const { avatar_url } = useSelector(state => state.user.user);
+  const dispatch = useDispatch();
+
   function handleModal() {
     setModal(!modal);
+  }
+
+  function handleForm({ target }) {
+    // dispatch(searchTag(data));
+    dispatch(searchTag({ tag: target.value }));
   }
 
   return (
@@ -29,73 +29,22 @@ function Aside() {
       <Container>
         <UserModal>
           <button type="button" onClick={handleModal}>
-            <img src={avatar} alt="avatar" />
+            <img src={avatar_url} alt="avatar" />
           </button>
         </UserModal>
-        <Form>
-          <input placeholder="Search" />
+        <Form handleForm={handleForm}>
+          <input
+            placeholder="Search"
+            name="filter"
+            onChange={handleForm}
+            autoComplete="off"
+          />
           <Search type="submit">
             <MdSearch size={30} />
           </Search>
         </Form>
         <Nav>
-          <ul>
-            <li>
-              <MdChevronRight size={20} />
-
-              <AsideItem>
-                <button onClick={e => console.log(e)}>
-                  <span>React</span>
-                  <BorderTop />
-                  <BorderBottom />
-                  <BorderLeft />
-                  <BorderRight />
-                </button>
-              </AsideItem>
-            </li>
-            <li>
-              <MdChevronRight size={20} />
-
-              <AsideItem>
-                <button onClick={e => console.log(e)}>
-                  <span>Node JS</span>
-
-                  <BorderTop />
-                  <BorderBottom />
-                  <BorderLeft />
-                  <BorderRight />
-                </button>
-              </AsideItem>
-            </li>
-            <li>
-              <MdChevronRight size={20} />
-
-              <AsideItem>
-                <button onClick={e => console.log(e)}>
-                  <span>React Native</span>
-
-                  <BorderTop />
-                  <BorderBottom />
-                  <BorderLeft />
-                  <BorderRight />
-                </button>
-              </AsideItem>
-            </li>
-            <li>
-              <MdChevronRight size={20} />
-
-              <AsideItem>
-                <button onClick={e => console.log(e)}>
-                  <span>GraghpQl</span>
-
-                  <BorderTop />
-                  <BorderBottom />
-                  <BorderLeft />
-                  <BorderRight />
-                </button>
-              </AsideItem>
-            </li>
-          </ul>
+          <AsideTags />
         </Nav>
       </Container>
       <UserConfingModal isOpen={modal} handleModal={handleModal} />

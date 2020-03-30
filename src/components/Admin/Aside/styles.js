@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { lighten } from "polished";
 
 export const Container = styled.aside`
   display: flex;
@@ -22,6 +23,34 @@ export const Container = styled.aside`
   top: 0;
   left: 0;
 
+  form {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+
+    padding-left: 10px;
+
+    flex-direction: row;
+    height: auto;
+
+    input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      border-bottom: 1px solid #222c69;
+      outline: none;
+
+      ::placeholder {
+        font-family: "Open Sans", Arial, Helvetica, sans-serif;
+        font-weight: 400;
+        font-size: 12px;
+        color: #fff;
+        text-transform: uppercase;
+      }
+    }
+  }
 `;
 
 export const UserModal = styled.div`
@@ -56,34 +85,9 @@ export const UserModal = styled.div`
   }
 `;
 
-export const Form = styled.form`
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 10;
-
-  padding-left: 10px;
-
-  input {
-    flex: 1;
-    border: none;
-    background: transparent;
-    border-bottom: 1px solid #222c69;
-    outline: none;
-
-    ::placeholder {
-      font-family: "Open Sans", Arial, Helvetica, sans-serif;
-      font-weight: 400;
-      font-size: 12px;
-      color: #fff;
-      text-transform: uppercase;
-    }
-  }
-`;
-
 export const Search = styled.button`
   background: none;
+  cursor: pointer;
 
   svg {
     color: #fff;
@@ -93,6 +97,23 @@ export const Search = styled.button`
 export const Nav = styled.nav`
   width: 100%;
   display: flex;
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #11152b;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #272834;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: ${lighten(0.1, "#11152b")};
+  }
 
   ul {
     width: 100%;
@@ -158,33 +179,4 @@ export const Nav = styled.nav`
     height: 0%;
     top: 0;
   }
-`;
-
-export const AsideItem = styled.div`
-  width: 100%;
-  position: relative;
-`;
-
-export const BorderTop = styled.div.attrs({
-  className: "border top"
-})`
-  top: 0;
-`;
-
-export const BorderBottom = styled.div.attrs({
-  className: "border bottom"
-})`
-  bottom: 0;
-`;
-
-export const BorderLeft = styled.div.attrs({
-  className: "border left"
-})`
-  left: 0;
-`;
-
-export const BorderRight = styled.div.attrs({
-  className: "border right"
-})`
-  right: 0;
 `;

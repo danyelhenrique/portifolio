@@ -36,7 +36,7 @@ export default function FormPost() {
     removeToast(toastyId);
   }
 
-  async function handleForm(data) {
+  async function handleForm(data, { reset }) {
     const storeOrUpdate = state.isEdit
       ? projectUpdateRequest
       : projectStoreRequest;
@@ -44,6 +44,7 @@ export default function FormPost() {
     const payload = { ...state.project_item, ...data };
     handleToast();
     dispatch(storeOrUpdate(payload));
+    reset();
   }
 
   return (

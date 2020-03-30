@@ -27,13 +27,18 @@ function UserConfig({ isOpen, handleModal }) {
           <button type="button" onClick={handleModal}>
             <MdClose size={32} color="#000" />
           </button>
-          <span>Danyel henrique </span>
-          <img src={user.avatar_url || ""} />
+          <span>{user.name} </span>
+          <img src={user.avatar_url} />
         </Avatar>
-        <Form>
+        <Form initialData={user}>
           <label htmlFor="avatar">
             avatar_url:
-            <Input type="avatar" name="avatar" id="avatar" autoComplete="off" />
+            <Input
+              type="avatar"
+              name="avatar_url"
+              id="avatar"
+              autoComplete="off"
+            />
           </label>
           <label htmlFor="name">
             name:

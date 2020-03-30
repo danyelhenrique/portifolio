@@ -69,3 +69,31 @@ export function projectEdit(payload) {
     payload
   };
 }
+
+// -------------------------------- //
+
+export function projectSearchRequest(payload) {
+  return {
+    type: "@PROJECT/PROJECT_SEARCH_REQUEST",
+    payload
+  };
+}
+
+export function projectSearchSuccess(payload) {
+  return {
+    type: "@PROJECT/PROJECT_SEARCH_SUCCESS",
+    payload
+  };
+}
+
+export function projectSearchFailure() {
+  return {
+    type: "@PROJECT/PROJECT_SEARCH_FAILURE"
+  };
+}
+
+export function projectSearchCancel() {
+  return {
+    type: "@PROJECT/PROJECT_SEARCH_CANCEL"
+  };
+}

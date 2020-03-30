@@ -1,4 +1,4 @@
-import { all, call, put, takeLatest } from "redux-saga/effects";
+import { all, call, put, takeLatest, takeEvery } from "redux-saga/effects";
 
 import Api from "../../../services/api";
 
@@ -8,7 +8,9 @@ import {
   projectStoreSuccess,
   projectStoreFailure,
   projectUpdateSuccess,
-  projectUpdateFailure
+  projectUpdateFailure,
+  projectSearchSuccess,
+  projectSearchFailure
 } from "./actions";
 
 function* projectsRequest() {
@@ -66,8 +68,26 @@ function* projectUpdate(data) {
   }
 }
 
+function* projectSearch(data) {
+  try {
+    const { search } = data.payload.title;
+    console.tron.log(data);
+    console.tron.log("srach ", search);
+
+    const clearTitle = search.trim().toLowerCase();
+
+    const response = yield call(Api, `/search?name=${clearTitle}`);
+    console.tron.log("response", response);
+
+    yield put(projectSearchSuccess(response.data));
+  } catch (e) {
+    yield put(projectSearchFailure());
+  }
+}
+
 export default all([
   takeLatest("@PROJECT/PROJECTS_REQUEST", projectsRequest),
   takeLatest("@PROJECT/PROJECT_STORE_REQUEST", projectStore),
-  takeLatest("@PROJECT/PROJECT_UPDATE_REQUEST", projectUpdate)
+  takeLatest("@PROJECT/PROJECT_UPDATE_REQUEST", projectUpdate),
+  takeLatest("@PROJECT/PROJECT_SEARCH_REQUEST", projectSearch)
 ]);
