@@ -46,7 +46,9 @@ function filterReducer(state = INITIAL_STATE, action) {
           .trim()
           .toLowerCase();
 
-        const tags = draftState.tags.filter(tag => tag.includes(tagClear));
+        const tags = draftState.available_tags.filter(tag =>
+          tag.name.includes(tagClear)
+        );
 
         draftState.tag_search = tags;
         break;

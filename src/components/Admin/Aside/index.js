@@ -20,7 +20,7 @@ function Aside() {
   }
 
   function handleForm({ target }) {
-    dispatch(searchTag({ tag: target.value }));
+    dispatch(searchTag({ tag: (target && target.value) || "" }));
   }
 
   return (
