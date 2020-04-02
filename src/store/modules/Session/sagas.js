@@ -12,7 +12,9 @@ function* sessionRequest(data) {
     const response = yield call(Api.post, "/signin", { email, password });
     const payload = { ...response.data };
 
-    Api.defaults.headers.authorization = `Bearer ${response.data.token}`;
+    const token = `Bearer ${response.data.token}`;
+
+    Api.defaults.headers.authorization = token;
 
     yield put(sessionStoreSuccess(payload));
 
@@ -22,6 +24,15 @@ function* sessionRequest(data) {
   }
 }
 
+function perstitTokenHeader(data) {
+  const { payload } = data;
+
+  const token = `Bearer ${payload.session.token}`;
+
+  Api.defaults.headers.authorization = token;
+}
+
 export default all([
-  takeLatest("@SESSION/SESSION_STORE_REQUEST", sessionRequest)
+  takeLatest("@SESSION/SESSION_STORE_REQUEST", sessionRequest),
+  takeLatest("persist/REHYDRATE", perstitTokenHeader)
 ]);

@@ -1,35 +1,40 @@
 import produce from "immer";
 
 const INITIAL_STATE = {
-  filters: [],
-  tags: [],
-  tag_search: [],
-  item: null
+  filter_data: [],
+  filter_tag: [],
+  available_tags: [],
+  tag_search: []
 };
 
 function filterReducer(state = INITIAL_STATE, action) {
   return produce(state, draftState => {
     switch (action.type) {
-      case "@FILTER/FILTER_TAG_ITEM": {
-        const { filter } = action.payload;
+      case "@TAG/TAG_LIST_SUCCESS": {
+        const { tags } = action.payload;
 
-        const clearFitler = filter
-          .toString()
-          .trim()
-          .toLowerCase();
+        draftState.available_tags = tags;
 
-        const available = draftState.tags.includes(clearFitler);
-        const fitlerAlreadyUsed = draftState.filters.includes(clearFitler);
-
-        if (!filter || !available || fitlerAlreadyUsed) return;
-
-        draftState.filters.push(filter);
         break;
       }
-      case "@PROJECT/PROJECTS_SUCCESS": {
-        const { available_tags } = action.payload;
+      case "@TAG/FILTER_TAG_ITEM_SUCCESS": {
+        const { filter_data, filter } = action.payload;
+        draftState.filter_data = filter_data;
 
-        draftState.tags = Object.keys(available_tags);
+        const getFilter = draftState.available_tags.filter(
+          tag => tag._id === filter._id
+        );
+
+        draftState.filter_tag.push(...getFilter);
+
+        break;
+      }
+      case "@TAG/FILTER_TAG_ITEM_REMOVE": {
+        const { filter: filterPayload } = action.payload;
+
+        draftState.filter_data = draftState.filter_data.filter(
+          fitler => fitler.id !== filterPayload.id
+        );
 
         break;
       }

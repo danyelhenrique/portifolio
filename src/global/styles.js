@@ -89,6 +89,7 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
+  outline: none;
   font-size: 100%;
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
   vertical-align: baseline;
@@ -213,7 +214,7 @@ textarea {
 }
 
 a {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:hover {
@@ -324,22 +325,6 @@ hr {
   border: 0;
   border-bottom: solid 1px;
   margin: 2em 0;
-}
-
-hr.major {
-  margin: 3em 0;
-}
-
-.align-left {
-  text-align: left;
-}
-
-.align-center {
-  text-align: center;
-}
-
-.align-right {
-  text-align: right;
 }
 
 input,

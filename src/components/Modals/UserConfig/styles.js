@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { lighten } from "polished";
 
 export const Section = styled.section`
   display: flex;
@@ -24,7 +25,7 @@ export const Section = styled.section`
 `;
 
 export const Container = styled.div`
-  background: #fff;
+  background: #192036;
   border-radius: 5px;
   width: 67%;
   height: 85vh;
@@ -44,29 +45,34 @@ export const Container = styled.div`
 
     label {
       margin: 15px 0;
-    }
-    button {
-      text-transform: uppercase;
-      font-weight: bold;
-      padding: 30px 150px;
-      border-radius: 5px;
-      background: #192036;
-      border: none;
 
-      color: #fff;
-      cursor: pointer;
+      input {
+        background: none;
+        color: #fff;
+      }
     }
   }
 `;
 
 export const Button = styled.button`
-  background: none;
-  border: none;
   outline: none;
-  color: #7159c1;
-  cursor: pointer;
 
   margin: 40px 0;
+
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 30px 150px;
+  border-radius: 5px;
+  background: #11152b;
+  border: none;
+
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.4s ease-in;
+
+  :hover {
+    background: ${lighten(0.2, "#11152b")};
+  }
 `;
 
 export const Avatar = styled.div`
@@ -82,9 +88,10 @@ export const Avatar = styled.div`
     background: #dedede;
   }
 
-  span {
-    color: #192036;
+  h2 {
+    color: #fff;
     font-size: 52px;
+    text-transform: none;
   }
 
   button {
@@ -94,6 +101,14 @@ export const Avatar = styled.div`
     cursor: pointer;
 
     svg {
+      color: #9c9c9c;
+      transition: color 0.4s ease-in;
+    }
+
+    :hover {
+      svg {
+        color: ${lighten(0.2, "#9c9c9c")};
+      }
     }
   }
 `;

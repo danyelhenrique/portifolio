@@ -19,20 +19,3 @@ export const Container = styled.div`
     }
   }
 `;
-
-export const ToastMessage = styled.div`
-  display: flex;
-  align-items: center;
-
-  justify-content: space-between;
-  width: 100%;
-  text-transform: uppercase;
-
-  button {
-    background: none;
-    border: none;
-    outline: none;
-    color: #7159c1;
-    cursor: pointer;
-  }
-`;

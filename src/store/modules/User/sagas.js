@@ -12,6 +12,12 @@ import Api from "../../../services/api";
 function* userUpdate(data) {
   try {
     const { payload } = data;
+    if (!payload.password) {
+      delete payload.password;
+    }
+
+    console.tron.log(payload);
+
     const response = yield call(Api.put, "/users", payload);
 
     yield put(updateUserSuccess(response.data));

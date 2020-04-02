@@ -50,13 +50,7 @@ function* projectUpdate(data) {
   try {
     const { _id, ...payload } = data.payload;
 
-    const tag =
-      payload && payload.tag
-        ? payload.tag
-            .trim()
-            .toLowerCase()
-            .split(",")
-        : [];
+    const tag = payload && payload.tag ? payload.tag.trim().toLowerCase() : "";
 
     const project = { ...payload, tag };
 
@@ -71,13 +65,10 @@ function* projectUpdate(data) {
 function* projectSearch(data) {
   try {
     const { search } = data.payload.title;
-    console.tron.log(data);
-    console.tron.log("srach ", search);
 
     const clearTitle = search.trim().toLowerCase();
 
     const response = yield call(Api, `/search?name=${clearTitle}`);
-    console.tron.log("response", response);
 
     yield put(projectSearchSuccess(response.data));
   } catch (e) {

@@ -8,7 +8,7 @@ export default ({ isPrivate, children, ...rest }) => {
   if (!token && isPrivate) {
     return (
       <Route {...rest}>
-        <Redirect to="/" />
+        <Redirect to="/admin/session" />
         {children}
       </Route>
     );
@@ -17,7 +17,7 @@ export default ({ isPrivate, children, ...rest }) => {
   if (!isloggedin && isPrivate) {
     return (
       <Route {...rest}>
-        <Redirect to="/" />
+        <Redirect to="/admin/session" />
         {children}
       </Route>
     );

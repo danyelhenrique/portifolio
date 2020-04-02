@@ -1,5 +1,12 @@
-import React from "react";
+import React, { useMemo, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
+import api from "../../../services/api";
+
+import {
+  filterTagRequest,
+  tagListRequest
+} from "../../../store/modules/Tags/actions";
 
 import { MdChevronRight } from "react-icons/md";
 
@@ -12,38 +19,33 @@ import {
 } from "./styles";
 
 function AsideTags() {
-  const { tags, tag_search } = useSelector(state => state.tags);
+  const { available_tags, tag_search } = useSelector(state => state.tags);
   const dispatch = useDispatch();
 
-  if (tag_search.length > 0) {
-    return (
-      <ul>
-        {tag_search.map(tagItem => (
-          <li>
-            <MdChevronRight size={20} />
-            <AsideItem>
-              <button onClick={e => console.log(tagItem)}>
-                <span>{tagItem}</span>
-                <BorderTop />
-                <BorderBottom />
-                <BorderLeft />
-                <BorderRight />
-              </button>
-            </AsideItem>
-          </li>
-        ))}
-      </ul>
-    );
+  // const uniQueTagOrList = useMemo(() => {
+  //   return tag_search.length > 0 ? tag_search : tags;
+  // }, [tag_search, tags]);
+
+  const uniQueTagOrList = useMemo(() => {
+    return tag_search.length > 0 ? tag_search : available_tags;
+  }, [tag_search, available_tags]);
+
+  useEffect(() => {
+    dispatch(tagListRequest());
+  }, []);
+
+  function handleTag(tagItem) {
+    dispatch(filterTagRequest({ filter: tagItem }));
   }
 
   return (
     <ul>
-      {tags.map(tagItem => (
+      {uniQueTagOrList.map(tagItem => (
         <li>
           <MdChevronRight size={20} />
           <AsideItem>
-            <button onClick={e => console.log(tagItem)}>
-              <span>{tagItem}</span>
+            <button onClick={() => handleTag(tagItem)}>
+              <span>{tagItem.name}</span>
               <BorderTop />
               <BorderBottom />
               <BorderLeft />

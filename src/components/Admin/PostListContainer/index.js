@@ -5,15 +5,18 @@ import {
   projectSearchRequest,
   projectSearchCancel
 } from "../../../store/modules/Project/actions";
+
+import { filterTagItemRemove } from "../../../store/modules/Tags/actions";
+
 import Form from "../../Unform/Form";
 import Input from "../../Unform/Input";
 
-import { Container, Filters, Search, Filter } from "./styles";
+import { Container, Filters, Search, FilterContainer, Filter } from "./styles";
 
-import { MdSearch, MdClose } from "react-icons/md";
+import { MdSearch, MdClose, MdDelete } from "react-icons/md";
 
 export default function PostList({ children }) {
-  const { filters } = useSelector(state => state.tags);
+  const { filter_tag } = useSelector(state => state.tags);
   const { has_search_item, search_items } = useSelector(state => state.project);
   const dispatch = useDispatch();
 
@@ -25,6 +28,10 @@ export default function PostList({ children }) {
     }
 
     reset();
+  }
+
+  function removeFilter(filter) {
+    dispatch(filterTagItemRemove({ filter }));
   }
 
   return (
@@ -49,11 +56,16 @@ export default function PostList({ children }) {
             )}
           </Form>
         </Search>
-        {filters.map(filter => (
-          <Filter>
-            <button type="button">{filter}</button>
-          </Filter>
-        ))}
+        <FilterContainer>
+          {filter_tag.map(filter => (
+            <Filter>
+              <button type="button" onClick={() => removeFilter(filter)}>
+                <MdDelete />
+                <span> {filter.name || ""}</span>
+              </button>
+            </Filter>
+          ))}
+        </FilterContainer>
       </Filters>
       <Container>{children}</Container>
     </>

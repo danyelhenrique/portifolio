@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import Form from "../../Unform/Form";
 import Input from "../../Unform/Input";
+
+import { updateUserRequest } from "../../../store/modules/User/actions";
 
 import { MdClose } from "react-icons/md";
 
@@ -10,6 +12,7 @@ import { Section, Container, Avatar, Button } from "./styles";
 
 function UserConfig({ isOpen, handleModal }) {
   const { user } = useSelector(state => state.user);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     function overFllowBody() {
@@ -20,17 +23,20 @@ function UserConfig({ isOpen, handleModal }) {
     return () => overFllowBody();
   }, [isOpen]);
 
+  function handleForm(data) {
+    dispatch(updateUserRequest(data));
+  }
   return (
     <Section isOpen={isOpen}>
       <Container>
         <Avatar>
           <button type="button" onClick={handleModal}>
-            <MdClose size={32} color="#000" />
+            <MdClose size={32} />
           </button>
-          <span>{user.name} </span>
+          <h2>{user.name} </h2>
           <img src={user.avatar_url} />
         </Avatar>
-        <Form initialData={user}>
+        <Form initialData={user} handleForm={handleForm}>
           <label htmlFor="avatar">
             avatar_url:
             <Input
