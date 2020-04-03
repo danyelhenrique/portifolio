@@ -22,10 +22,6 @@ function AsideTags() {
   const { available_tags, tag_search } = useSelector(state => state.tags);
   const dispatch = useDispatch();
 
-  // const uniQueTagOrList = useMemo(() => {
-  //   return tag_search.length > 0 ? tag_search : tags;
-  // }, [tag_search, tags]);
-
   const uniQueTagOrList = useMemo(() => {
     return tag_search.length > 0 ? tag_search : available_tags;
   }, [tag_search, available_tags]);

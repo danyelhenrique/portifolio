@@ -1,8 +1,6 @@
 import React, { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-// import { projectSearchRequest } from "../../../store/modules/Project/actions";
-
 import { Project, Image, Content } from "./styles";
 
 import PostListContainer from "../PostListContainer";
@@ -11,15 +9,15 @@ import { MdEdit } from "react-icons/md";
 
 export default function PostList() {
   const dispatch = useDispatch();
-  const { filters } = useSelector(state => state.tags);
+  const { filters, filter_data } = useSelector(state => state.tags);
 
   const { projects, has_search_item, search_items } = useSelector(
     state => state.project
   );
 
   const uniqueProjectOrList = useMemo(() => {
-    return has_search_item ? search_items : projects;
-  }, [has_search_item, projects, search_items]);
+    return filter_data.length > 0 ? filter_data : projects;
+  }, [filter_data, projects]);
 
   function handleClick(project) {
     const payload = { project, isEdit: true };

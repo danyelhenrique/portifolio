@@ -6,7 +6,7 @@ import AsideTags from "../AsideTags";
 import UserConfingModal from "../../Modals/UserConfig";
 import Form from "../../Unform/Form";
 
-import { MdSearch, MdChevronRight } from "react-icons/md";
+import { MdSearch } from "react-icons/md";
 
 import { Container, UserModal, Search, Nav } from "./styles";
 

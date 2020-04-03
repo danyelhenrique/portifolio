@@ -19,7 +19,7 @@ function filterReducer(state = INITIAL_STATE, action) {
       }
       case "@TAG/FILTER_TAG_ITEM_SUCCESS": {
         const { filter_data, filter } = action.payload;
-        draftState.filter_data = filter_data;
+        draftState.filter_data.push(...filter_data);
 
         const getFilter = draftState.available_tags.filter(
           tag => tag._id === filter._id
@@ -30,11 +30,8 @@ function filterReducer(state = INITIAL_STATE, action) {
         break;
       }
       case "@TAG/FILTER_TAG_ITEM_REMOVE": {
-        const { filter: filterPayload } = action.payload;
-
-        draftState.filter_data = draftState.filter_data.filter(
-          fitler => fitler.id !== filterPayload.id
-        );
+        draftState.filter_data = [];
+        draftState.filter_tag = [];
 
         break;
       }
