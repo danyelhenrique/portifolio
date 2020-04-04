@@ -50,6 +50,13 @@ function filterReducer(state = INITIAL_STATE, action) {
         draftState.tag_search = tags;
         break;
       }
+
+      case "@PROJECT/PROJECT_SEARCH_SUCCESS": {
+        draftState.filter_tag = [];
+        draftState.filter_data = [];
+
+        break;
+      }
       default:
         return state;
     }

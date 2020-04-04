@@ -40,10 +40,9 @@ export function filterTagFailure() {
   };
 }
 
-export function filterTagItemRemove(payload) {
+export function filterTagItemRemove() {
   return {
-    type: "@TAG/FILTER_TAG_ITEM_REMOVE",
-    payload
+    type: "@TAG/FILTER_TAG_ITEM_REMOVE"
   };
 }
 

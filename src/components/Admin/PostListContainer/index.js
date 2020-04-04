@@ -30,8 +30,8 @@ export default function PostList({ children }) {
     reset();
   }
 
-  function removeFilter(filter) {
-    dispatch(filterTagItemRemove({ filter }));
+  function removeFilter() {
+    dispatch(filterTagItemRemove());
   }
 
   return (
@@ -59,7 +59,7 @@ export default function PostList({ children }) {
         <FilterContainer>
           {filter_tag.map(filter => (
             <Filter>
-              <button type="button" onClick={() => removeFilter(filter)}>
+              <button type="button" onClick={removeFilter}>
                 <MdDelete />
                 <span> {filter.name || ""}</span>
               </button>

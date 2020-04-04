@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Filters = styled.div`
   display: flex;
-  /* align-items: center; */
   flex-direction: column;
   width: 100%;
 
@@ -12,10 +11,11 @@ export const Filters = styled.div`
   z-index: 10;
   padding: 10px 0px;
 
-  background: ${({ background }) =>
-    background
-      ? "linear-gradient( to right,#1d2135, #212436, #242635,#272835, #282934 )"
-      : "linear-gradient(to right, #262734, #2a2a35, #2c2c34, #2d2d34, #313133 )"};
+  background: #11152b;
+  padding: 20px;
+
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 `;
 
 export const Search = styled.div`

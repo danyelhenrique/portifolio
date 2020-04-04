@@ -16,6 +16,19 @@ export const Container = styled.div`
 
       color: #fff;
       cursor: pointer;
+      margin: 10px 0;
+    }
+
+    label {
+      height: auto;
+      margin: 5px 0;
+    }
+
+    textarea {
+      resize: vertical;
+      border: 4px double rgb(0, 0, 0);
+      color: #000;
+      outline: none;
     }
   }
 `;
