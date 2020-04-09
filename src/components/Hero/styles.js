@@ -58,7 +58,7 @@ export const Title = styled.div`
     margin-bottom: 0.25em;
     color: rgba(255, 255, 255, 0.75);
     text-shadow: -2px -2px 0 rgba(0, 0, 0, 0.125);
-    text-transform: none;
+    text-transform: capitalize;
     font-weight: 600;
   }
 `;

@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import { Article, Header, Footer } from "./styles";
@@ -12,7 +12,7 @@ export default function Posts({ project }) {
   function handleClick(project) {
     const payload = {
       project,
-      isEdit: true
+      isEdit: true,
     };
     dispatch({ type: "@PROJECT/PROJECT_EDIT", payload });
     history.push("/admin");
@@ -30,8 +30,12 @@ export default function Posts({ project }) {
         <span>{project.description}</span>
       </div>
       <Footer>
-        <a href="#">Github</a>
-        <a href="#">Demo</a>
+        <a href={project.github_url} target="_blank">
+          Github
+        </a>
+        <a href={project.deploy_url} target="_blank">
+          Demo
+        </a>
       </Footer>
     </Article>
   );

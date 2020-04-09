@@ -4,6 +4,8 @@ export const Container = styled.section`
   height: 100%;
   width: 100%;
 
+  background: url("${(props) => props.background && props.background}");
+
   align-items: center;
   display: flex;
   justify-content: center;
@@ -17,7 +19,6 @@ export const Container = styled.section`
   text-align: center;
   overflow: hidden;
 
-  background: url("${props => props.background && props.background}");
   z-index: 10;
 
   ::before {

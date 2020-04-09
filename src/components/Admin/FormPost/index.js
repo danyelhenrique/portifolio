@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import {
   projectStoreRequest,
-  projectUpdateRequest
+  projectUpdateRequest,
 } from "../../../store/modules/Project/actions";
 
 import Form from "../../Unform/Form";
@@ -12,7 +12,7 @@ import Input from "../../Unform/Input";
 import { Container } from "./styles";
 
 export default function FormPost() {
-  const state = useSelector(state => state.project);
+  const state = useSelector((state) => state.project);
   const dispatch = useDispatch();
 
   async function handleForm(data, { reset }) {
@@ -21,7 +21,7 @@ export default function FormPost() {
       : projectStoreRequest;
 
     const payload = { ...state.project_item, ...data };
-    dispatch(storeOrUpdate(payload));
+    dispatch(storeOrUpdate(data));
     reset();
   }
 

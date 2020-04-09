@@ -10,7 +10,7 @@ import {
   projectUpdateSuccess,
   projectUpdateFailure,
   projectSearchSuccess,
-  projectSearchFailure
+  projectSearchFailure,
 } from "./actions";
 
 function* projectsRequest() {
@@ -28,13 +28,7 @@ function* projectStore(data) {
   try {
     const { payload } = data;
 
-    const tag =
-      payload && payload.tag
-        ? payload.tag
-            .trim()
-            .toLowerCase()
-            .split(",")
-        : [];
+    const tag = payload && payload.tag && payload.tag.trim().toLowerCase();
 
     const project = { ...payload, tag };
 
@@ -80,5 +74,5 @@ export default all([
   takeLatest("@PROJECT/PROJECTS_REQUEST", projectsRequest),
   takeLatest("@PROJECT/PROJECT_STORE_REQUEST", projectStore),
   takeLatest("@PROJECT/PROJECT_UPDATE_REQUEST", projectUpdate),
-  takeLatest("@PROJECT/PROJECT_SEARCH_REQUEST", projectSearch)
+  takeLatest("@PROJECT/PROJECT_SEARCH_REQUEST", projectSearch),
 ]);
