@@ -1,9 +1,18 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { verifySessionRequest } from "../store/modules/Session/actions";
+
+import { useSelector, useDispatch } from "react-redux";
 import { Route, Redirect } from "react-router-dom";
 
 export default ({ isPrivate, children, ...rest }) => {
-  const { token, isloggedin } = useSelector(state => state.session);
+  const { token, isloggedin } = useSelector((state) => state.session);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (isPrivate) {
+      dispatch(verifySessionRequest());
+    }
+  }, [isPrivate]);
 
   if (!token && isPrivate) {
     return (

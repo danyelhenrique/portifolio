@@ -5,12 +5,12 @@ const INITIAL_STATE = {
     id: "",
     name: "",
     avatar_url: "",
-    email: ""
-  }
+    email: "",
+  },
 };
 
 function userReducer(state = INITIAL_STATE, action) {
-  return produce(state, draftState => {
+  return produce(state, (draftState) => {
     switch (action.type) {
       case "@USER/USER_UPDATE_SUCCESS": {
         draftState.user = action.payload.user;
@@ -18,6 +18,10 @@ function userReducer(state = INITIAL_STATE, action) {
       }
       case "@SESSION/SESSION_STORE_SUCCESS": {
         draftState.user = action.payload.user;
+        break;
+      }
+      case "@SESSION/SESSION_VERIFY_FAILURE": {
+        draftState.user = {};
         break;
       }
       default:

@@ -3,7 +3,12 @@ import { all, call, put, takeLatest } from "redux-saga/effects";
 import Api from "../../../services/api";
 import history from "../../../services/history";
 
-import { sessionStoreSuccess, sessionStoreFailure } from "./actions";
+import {
+  sessionStoreSuccess,
+  sessionStoreFailure,
+  verifySessionSuccess,
+  verifySessionFailure,
+} from "./actions";
 
 function* sessionRequest(data) {
   try {
@@ -32,7 +37,18 @@ function perstitTokenHeader(data) {
   Api.defaults.headers.authorization = token;
 }
 
+function* verifySession() {
+  try {
+    yield call(Api.get, "/verify");
+
+    yield put(verifySessionSuccess());
+  } catch (e) {
+    yield put(verifySessionFailure());
+  }
+}
+
 export default all([
   takeLatest("@SESSION/SESSION_STORE_REQUEST", sessionRequest),
-  takeLatest("persist/REHYDRATE", perstitTokenHeader)
+  takeLatest("persist/REHYDRATE", perstitTokenHeader),
+  takeLatest("@SESSION/SESSION_VERIFY_REQUEST", verifySession),
 ]);

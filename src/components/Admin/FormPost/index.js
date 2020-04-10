@@ -8,6 +8,7 @@ import {
 
 import Form from "../../Unform/Form";
 import Input from "../../Unform/Input";
+import TextArea from "../../Unform/TextArea";
 
 import { Container } from "./styles";
 
@@ -20,9 +21,14 @@ export default function FormPost() {
       ? projectUpdateRequest
       : projectStoreRequest;
 
-    const payload = { ...state.project_item, ...data };
-    dispatch(storeOrUpdate(data));
+    const payload = state.isEdit
+      ? { ...state.project_item, ...data }
+      : { ...data };
+
+    dispatch(storeOrUpdate(payload));
+
     reset();
+    console.log(data);
   }
 
   return (
@@ -43,7 +49,7 @@ export default function FormPost() {
         </label>
         <label htmlFor="description">
           Description :
-          <Input
+          <TextArea
             name="description"
             type="text"
             id="description"
@@ -72,6 +78,7 @@ export default function FormPost() {
           Tag :
           <Input name="tag" type="text" id="tag" autoComplete="off" />
         </label>
+        <button type="submit">{state.isEdit ? "UPDATE" : "SAVE"}</button>
         <button type="submit">{state.isEdit ? "UPDATE" : "SAVE"}</button>
       </Form>
     </Container>
