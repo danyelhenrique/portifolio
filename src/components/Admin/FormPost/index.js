@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
   projectStoreRequest,
   projectUpdateRequest,
+  projectFormReset,
 } from "../../../store/modules/Project/actions";
 
 import Form from "../../Unform/Form";
@@ -13,27 +14,31 @@ import TextArea from "../../Unform/TextArea";
 import { Container } from "./styles";
 
 export default function FormPost() {
-  const state = useSelector((state) => state.project);
+  const [formState, setFormState] = useState({});
+
+  const { isEdit, project_item } = useSelector((state) => state.project);
   const dispatch = useDispatch();
 
-  async function handleForm(data, { reset }) {
-    const storeOrUpdate = state.isEdit
-      ? projectUpdateRequest
-      : projectStoreRequest;
+  useEffect(() => {
+    setFormState(project_item);
+  }, [project_item, isEdit]);
 
-    const payload = state.isEdit
-      ? { ...state.project_item, ...data }
-      : { ...data };
+  function handleForm(data) {
+    const storeOrUpdate = isEdit ? projectUpdateRequest : projectStoreRequest;
+
+    const payload = isEdit ? { ...project_item, ...data } : { ...data };
 
     dispatch(storeOrUpdate(payload));
+  }
 
-    reset();
-    console.log(data);
+  function cancelUpdate() {
+    dispatch(projectFormReset());
+    console.tron.log(project_item);
   }
 
   return (
     <Container>
-      <Form handleForm={handleForm} initialData={state.project_item}>
+      <Form handleForm={handleForm} initialData={formState}>
         <label htmlFor="background_url">
           Background URL :
           <Input
@@ -78,8 +83,12 @@ export default function FormPost() {
           Tag :
           <Input name="tag" type="text" id="tag" autoComplete="off" />
         </label>
-        <button type="submit">{state.isEdit ? "UPDATE" : "SAVE"}</button>
-        <button type="submit">{state.isEdit ? "UPDATE" : "SAVE"}</button>
+        <button type="submit">{isEdit ? "UPDATE" : "SAVE"}</button>
+        {isEdit && (
+          <button type="button" onClick={cancelUpdate}>
+            CANCEL
+          </button>
+        )}
       </Form>
     </Container>
   );

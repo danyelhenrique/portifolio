@@ -1,4 +1,4 @@
-import { all, call, put, takeLatest, takeEvery } from "redux-saga/effects";
+import { all, call, put, takeLatest } from "redux-saga/effects";
 
 import Api from "../../../services/api";
 
@@ -11,6 +11,7 @@ import {
   projectUpdateFailure,
   projectSearchSuccess,
   projectSearchFailure,
+  projectFormReset,
 } from "./actions";
 
 function* projectsRequest() {
@@ -51,6 +52,7 @@ function* projectUpdate(data) {
     const response = yield call(Api.put, `/users/projects/${_id}`, project);
 
     yield put(projectUpdateSuccess(response.data));
+    yield put(projectFormReset());
   } catch (e) {
     yield put(projectUpdateFailure());
   }

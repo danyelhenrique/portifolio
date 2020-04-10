@@ -1,20 +1,20 @@
 export function projectStoreRequest(payload) {
   return {
     type: "@PROJECT/PROJECT_STORE_REQUEST",
-    payload
+    payload,
   };
 }
 
 export function projectStoreSuccess(payload) {
   return {
     type: "@PROJECT/PROJECT_STORE_SUCCESS",
-    payload
+    payload,
   };
 }
 
 export function projectStoreFailure() {
   return {
-    type: "@PROJECT/PROJECT_STORE_FAILURE"
+    type: "@PROJECT/PROJECT_STORE_FAILURE",
   };
 }
 
@@ -22,20 +22,20 @@ export function projectStoreFailure() {
 
 export function projectsRequest() {
   return {
-    type: "@PROJECT/PROJECTS_REQUEST"
+    type: "@PROJECT/PROJECTS_REQUEST",
   };
 }
 
 export function projectsSuccess(payload) {
   return {
     type: "@PROJECT/PROJECTS_SUCCESS",
-    payload
+    payload,
   };
 }
 
 export function projectsFailure() {
   return {
-    type: "@PROJECT/PROJECTS_FAILURE"
+    type: "@PROJECT/PROJECTS_FAILURE",
   };
 }
 
@@ -44,20 +44,28 @@ export function projectsFailure() {
 export function projectUpdateRequest(payload) {
   return {
     type: "@PROJECT/PROJECT_UPDATE_REQUEST",
-    payload
+    payload,
   };
 }
 
 export function projectUpdateSuccess(payload) {
   return {
     type: "@PROJECT/PROJECT_UPDATE_SUCCESS",
-    payload
+    payload,
   };
 }
 
 export function projectUpdateFailure() {
   return {
-    type: "@PROJECT/PROJECT_UPDATE_FAILURE"
+    type: "@PROJECT/PROJECT_UPDATE_FAILURE",
+  };
+}
+
+// ------------------------------------ //
+
+export function projectFormReset() {
+  return {
+    type: "@PROJECT/PROJECT_FORM_RESET",
   };
 }
 
@@ -66,7 +74,7 @@ export function projectUpdateFailure() {
 export function projectEdit(payload) {
   return {
     type: "@PROJECT/PROJECT_EDIT",
-    payload
+    payload,
   };
 }
 
@@ -75,25 +83,25 @@ export function projectEdit(payload) {
 export function projectSearchRequest(payload) {
   return {
     type: "@PROJECT/PROJECT_SEARCH_REQUEST",
-    payload
+    payload,
   };
 }
 
 export function projectSearchSuccess(payload) {
   return {
     type: "@PROJECT/PROJECT_SEARCH_SUCCESS",
-    payload
+    payload,
   };
 }
 
 export function projectSearchFailure() {
   return {
-    type: "@PROJECT/PROJECT_SEARCH_FAILURE"
+    type: "@PROJECT/PROJECT_SEARCH_FAILURE",
   };
 }
 
 export function projectSearchCancel() {
   return {
-    type: "@PROJECT/PROJECT_SEARCH_CANCEL"
+    type: "@PROJECT/PROJECT_SEARCH_CANCEL",
   };
 }

@@ -18,7 +18,7 @@ const INITIAL_STATE = {
   search_items: [],
   projects: [],
   tags: [],
-  project_item: { ...INITIAL_PROJECT_ITEM },
+  project_item: {},
 };
 
 function projectReducer(state = INITIAL_STATE, action) {
@@ -36,6 +36,9 @@ function projectReducer(state = INITIAL_STATE, action) {
         break;
       }
       case "@PROJECT/PROJECT_UPDATE_SUCCESS": {
+        // draftState.project_item = {};
+        // draftState.isEdit = false;
+
         const { _id } = action.payload.project;
         const index = draftState.projects.findIndex(
           (project) => project._id === _id
@@ -43,7 +46,11 @@ function projectReducer(state = INITIAL_STATE, action) {
 
         draftState.projects[index] = action.payload.project;
 
-        draftState.project_item = INITIAL_PROJECT_ITEM;
+        break;
+      }
+
+      case "@PROJECT/PROJECT_FORM_RESET": {
+        draftState.project_item = {};
         draftState.isEdit = false;
 
         break;
