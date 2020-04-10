@@ -35,4 +35,8 @@ export const Container = styled.section`
     width: 100%;
     z-index: 1;
   }
+
+@media screen and (max-width: 1000px) {
+        padding: 100px 0;
+  }
 `;

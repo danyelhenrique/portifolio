@@ -1,7 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap');
+/* @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,500;1,700&display=swap'); */
 /* Reset */
 
 html,
@@ -91,7 +92,7 @@ video {
   border: 0;
   outline: none;
   font-size: 100%;
-  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
   vertical-align: baseline;
   text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
@@ -156,13 +157,15 @@ body {
 body {
   background: linear-gradient( to right top, #051937, #181f36, #232535, #2c2c34, #333333 );
   color: #fff;
+  max-width: 1920px !important;
+    margin: 0 auto;
 }
 
 body,
 input,
 select,
 textarea {
-  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-size: 13pt;
   font-weight: 300;
   line-height: 1.65;
@@ -241,7 +244,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
 
   font-weight: 600;
   line-height: 1.5;
@@ -301,7 +304,7 @@ blockquote {
 code {
   border-radius: 4px;
   border: solid 1px;
-  font-family: "Courier New", monospace;
+  font-family: "Poppins", monospace;
   font-size: 0.9em;
   margin: 0 0.25em;
   padding: 0.25em 0.65em;
@@ -309,7 +312,7 @@ code {
 
 pre {
   -webkit-overflow-scrolling: touch;
-  font-family: "Courier New", monospace;
+  font-family: "Poppins", monospace;
   font-size: 0.9em;
   margin: 0 0 2em 0;
 }

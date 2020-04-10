@@ -33,7 +33,6 @@ export default function FormPost() {
 
   function cancelUpdate() {
     dispatch(projectFormReset());
-    console.tron.log(project_item);
   }
 
   return (

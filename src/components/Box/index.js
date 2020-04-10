@@ -1,8 +1,8 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import { Article, Header, Footer } from "./styles";
+import { Article, Header, Description, Footer } from "./styles";
 import { MdModeEdit } from "react-icons/md";
 
 export default function Posts({ project }) {
@@ -27,13 +27,23 @@ export default function Posts({ project }) {
         <h2>{project.title}</h2>
       </Header>
       <div>
-        <span>{project.description}</span>
+        <Description
+          dangerouslySetInnerHTML={{ __html: project.description }}
+        ></Description>
       </div>
       <Footer>
-        <a href={project.github_url} target="_blank">
+        <a
+          href={project.github_url}
+          target="_blank"
+          style={{ cursor: !project.github_url && "not-allowed" }}
+        >
           Github
         </a>
-        <a href={project.deploy_url} target="_blank">
+        <a
+          href={project.deploy_url}
+          target="_blank"
+          style={{ cursor: !project.deploy_url && "not-allowed" }}
+        >
           Demo
         </a>
       </Footer>

@@ -77,3 +77,30 @@ export const Footer = styled.footer`
   }
 
 }`;
+
+export const Description = styled.div`
+  h5 {
+    padding: 10px;
+  }
+  div {
+    display: flex;
+    width: 100%;
+    padding: 10px;
+
+    text-align: left;
+
+    @media screen and (max-width: 1000px) {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    strong {
+      color: #f64747;
+    }
+
+    span {
+      margin: 0 5px;
+      color: #ccc9c9;
+    }
+  }
+`;

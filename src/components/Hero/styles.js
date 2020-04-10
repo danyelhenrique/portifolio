@@ -14,7 +14,7 @@ export const HeroContainer = styled.section`
   text-align: center;
   overflow: hidden;
 
-  background: url("${props => props.background && props.background}");
+  background: url("${(props) => props.background && props.background}");
 
 
   background-position: center;
@@ -60,5 +60,24 @@ export const Title = styled.div`
     text-shadow: -2px -2px 0 rgba(0, 0, 0, 0.125);
     text-transform: capitalize;
     font-weight: 600;
+  }
+
+  @media screen and (max-width: 1000px) {
+    h1 {
+      font-size: 4.5rem;
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    h1 {
+      font-size: 3.5rem;
+    }
+  }
+
+  @media screen and (max-width: 350px) {
+    h1 {
+      font-size: 2.5rem;
+    }
   }
 `;

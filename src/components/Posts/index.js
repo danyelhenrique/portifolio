@@ -1,4 +1,5 @@
 import React from "react";
+
 import { useSelector } from "react-redux";
 
 import Next from "../Next";
@@ -6,19 +7,26 @@ import Box from "../Box";
 import PostItems from "../PostItems";
 
 export default function Posts() {
-  const { projects, isLoading } = useSelector(state => state.project);
+  const { projects, isLoading } = useSelector((state) => state.project);
 
   if (isLoading) return <h1>loading</h1>;
 
   return (
     <>
-      {projects.map((project, index) => (
-        <PostItems id={`section-${index}`} img={project.background_url}>
-          <Box project={project} />
+      {projects.map((project, index) => {
+        const sectionId = `section-${index}`;
+        const nextSectionId = `#section-${index + 1}`;
 
-          <Next go={`#section-${index + 1}`} />
-        </PostItems>
-      ))}
+        return (
+          <PostItems id={sectionId} img={project.background_url}>
+            <Box project={project} />
+
+            {projects.length !== index + 1 && (
+              <Next nextSectionId={nextSectionId} />
+            )}
+          </PostItems>
+        );
+      })}
     </>
   );
 }
