@@ -22,15 +22,18 @@ export const Section = styled.section`
 
 export const Border = styled.div`
   height: 100%;
-  width: ${props => (props.large ? "30%" : "30px")};
+  width: ${(props) => (props.large ? "30%" : "30px")};
   background: #0b1b37;
 `;
 
 export const BorderContent = styled.div``;
 
 export const Container = styled.div`
-  height: 90%;
-  width: 70%;
+  height: 60vh;
+  width: 30vw;
+  max-width: 550px;
+  max-height: 500px;
+  position: relative;
   background: #fff;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 
@@ -42,7 +45,7 @@ export const Container = styled.div`
 
   form {
     padding: 20px;
-    width: 50%;
+    width: 100%;
 
     justify-content: center;
 
@@ -113,11 +116,20 @@ const animtationBtn = keyframes`
 `;
 
 export const Submit = styled.button`
-  background: none;
+  background: #e02727;
   border: none;
-
   cursor: pointer;
   outline: none;
+  margin: 10px 0;
+  color: #cec9c9;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1rem;
+  border-radius: 5px;
+  border-top-left-radius: 5px;
+
+  width: 100%;
+  height: 65px;
 
   :hover {
     animation: ${animtationBtn} 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955)

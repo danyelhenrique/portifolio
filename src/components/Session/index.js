@@ -11,7 +11,7 @@ import {
   MdPerson,
   MdVpnKey,
   MdLockOpen,
-  MdLock
+  MdLock,
 } from "react-icons/md";
 import { FaSignInAlt } from "react-icons/fa";
 
@@ -32,18 +32,17 @@ export default function Session() {
     dispatch(siginOrSiginUp(data));
   }
   const passwordType = useMemo(() => (showPassword ? "text" : "password"), [
-    showPassword
+    showPassword,
   ]);
+
+  const url = "https://theysaidso.com/img/qod/qod-inspire.jpg";
+  const qto =
+    "You either walk inside your story and own it or you stand outside your story and hustle for your worthiness.";
 
   return (
     <Section>
       <Container>
-        <Border large />
-        <Border />
-        <Border />
         <Form handleForm={handleForm}>
-          <People />
-
           {isSignin && (
             <label>
               Name:
@@ -63,12 +62,10 @@ export default function Session() {
             <MdVpnKey size={24} />
             <Input type={passwordType} name="password" />
             <PasswordIcon onClick={() => setShowPassword(!showPassword)}>
-              {showPassword ? <MdLock size={24} /> : <MdLockOpen size={24} />}
+              {!showPassword ? <MdLock size={24} /> : <MdLockOpen size={24} />}
             </PasswordIcon>
           </label>
-          <Submit type="submit">
-            <FaSignInAlt size={55} color="#0b1b37" />
-          </Submit>
+          <Submit type="submit">{isSignin ? "Login" : "Create account"}</Submit>
           <span>
             {!isSignin && (
               <>
