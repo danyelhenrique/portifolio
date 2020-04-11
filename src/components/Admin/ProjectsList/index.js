@@ -38,7 +38,9 @@ export default function ProjectsList() {
             </Image>
             <Content>
               <h4>{project.title}</h4>
-              <span>{project.description.substring(0, 574) + "..."}</span>
+              <div
+                dangerouslySetInnerHTML={{ __html: project.description }}
+              ></div>
             </Content>
           </Project>
         ))}
@@ -58,7 +60,9 @@ export default function ProjectsList() {
           </Image>
           <Content>
             <h4>{project.title}</h4>
-            <span>{project.description.substring(0, 574) + "..."}</span>
+            <div
+              dangerouslySetInnerHTML={{ __html: project.description }}
+            ></div>
           </Content>
         </Project>
       ))}

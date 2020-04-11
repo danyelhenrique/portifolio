@@ -64,6 +64,7 @@ export const Content = styled.div`
   h4 {
     font-weight: bold;
     color: rgb(86, 86, 95);
+    margin: 0;
   }
 
   span {
