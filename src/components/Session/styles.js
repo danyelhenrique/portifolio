@@ -20,18 +20,14 @@ export const Section = styled.section`
   position: relative;
 `;
 
-export const Border = styled.div`
-  height: 100%;
-  width: ${(props) => (props.large ? "30%" : "30px")};
-  background: #0b1b37;
-`;
-
 export const BorderContent = styled.div``;
 
 export const Container = styled.div`
   height: 60vh;
   width: 30vw;
   max-width: 550px;
+  min-width: 410px;
+  min-height: 400px;
   max-height: 500px;
   position: relative;
   background: #fff;

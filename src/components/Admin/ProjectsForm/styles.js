@@ -50,3 +50,19 @@ export const Container = styled.div`
     }
   }
 `;
+
+export const Section = styled.section`
+  background: #fff;
+  border-radius: 5px;
+  width: 100%;
+  height: auto;
+  margin: 24px 0;
+
+  display: flex;
+
+  > div {
+    width: 100%;
+    color: #000;
+    padding: 15px;
+  }
+`;

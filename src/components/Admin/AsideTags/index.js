@@ -1,11 +1,9 @@
 import React, { useMemo, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import api from "../../../services/api";
-
 import {
   filterTagRequest,
-  tagListRequest
+  tagListRequest,
 } from "../../../store/modules/Tags/actions";
 
 import { MdChevronRight } from "react-icons/md";
@@ -15,11 +13,11 @@ import {
   BorderBottom,
   BorderLeft,
   BorderRight,
-  AsideItem
+  AsideItem,
 } from "./styles";
 
 function AsideTags() {
-  const { available_tags, tag_search } = useSelector(state => state.tags);
+  const { available_tags, tag_search } = useSelector((state) => state.tags);
   const dispatch = useDispatch();
 
   const uniQueTagOrList = useMemo(() => {
@@ -36,7 +34,7 @@ function AsideTags() {
 
   return (
     <ul>
-      {uniQueTagOrList.map(tagItem => (
+      {uniQueTagOrList.map((tagItem) => (
         <li>
           <MdChevronRight size={20} />
           <AsideItem>

@@ -11,9 +11,11 @@ export default function UInput({ name, ...rest }) {
     registerField({
       name: fieldName,
       ref: inputRef.current,
-      path: "value"
+      path: "value",
     });
   }, [fieldName, registerField]);
 
   return <Input ref={inputRef} defaultValue={defaultValue} {...rest} />;
 }
+
+export { UInput };

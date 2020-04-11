@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { useField } from "@unform/core";
 
-export default function Input({ name, ...rest }) {
+export default function TextArea({ name, ...rest }) {
   const inputRef = useRef(null);
   const { fieldName, defaultValue = "", registerField, error } = useField(name);
 
@@ -17,3 +17,5 @@ export default function Input({ name, ...rest }) {
     <textarea ref={inputRef} defaultValue={defaultValue} {...rest} rows="5" />
   );
 }
+
+export { TextArea };

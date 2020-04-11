@@ -2,9 +2,7 @@ import React, { useState, useMemo } from "react";
 
 import { useDispatch } from "react-redux";
 
-import Form from "../Unform/Form";
-import Input from "../Unform/Input";
-import People from "./People";
+import { Form, Input } from "../Unform";
 
 import {
   MdEmail,
@@ -13,9 +11,8 @@ import {
   MdLockOpen,
   MdLock,
 } from "react-icons/md";
-import { FaSignInAlt } from "react-icons/fa";
 
-import { Section, Border, Container, Submit, PasswordIcon } from "./styles";
+import { Section, Container, Submit, PasswordIcon } from "./styles";
 
 import { sessionStoreRequest } from "../../store/modules/Session/actions";
 import { storeUserRequest } from "../../store/modules/User/actions";
@@ -34,10 +31,6 @@ export default function Session() {
   const passwordType = useMemo(() => (showPassword ? "text" : "password"), [
     showPassword,
   ]);
-
-  const url = "https://theysaidso.com/img/qod/qod-inspire.jpg";
-  const qto =
-    "You either walk inside your story and own it or you stand outside your story and hustle for your worthiness.";
 
   return (
     <Section>

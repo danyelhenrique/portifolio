@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import {
   projectSearchRequest,
-  projectSearchCancel
+  projectSearchCancel,
 } from "../../../store/modules/Project/actions";
 
 import { filterTagItemRemove } from "../../../store/modules/Tags/actions";
@@ -15,9 +15,11 @@ import { Container, Filters, Search, FilterContainer, Filter } from "./styles";
 
 import { MdSearch, MdClose, MdDelete } from "react-icons/md";
 
-export default function PostList({ children }) {
-  const { filter_tag } = useSelector(state => state.tags);
-  const { has_search_item, search_items } = useSelector(state => state.project);
+export default function ProjectsListListContainer({ children }) {
+  const { filter_tag } = useSelector((state) => state.tags);
+  const { has_search_item, search_items } = useSelector(
+    (state) => state.project
+  );
   const dispatch = useDispatch();
 
   function handleChange(data, { reset }) {
@@ -57,7 +59,7 @@ export default function PostList({ children }) {
           </Form>
         </Search>
         <FilterContainer>
-          {filter_tag.map(filter => (
+          {filter_tag.map((filter) => (
             <Filter>
               <button type="button" onClick={removeFilter}>
                 <MdDelete />

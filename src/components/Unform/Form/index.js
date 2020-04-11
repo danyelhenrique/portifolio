@@ -18,3 +18,5 @@ export default function UForm({
     </Form>
   );
 }
+
+export { UForm };

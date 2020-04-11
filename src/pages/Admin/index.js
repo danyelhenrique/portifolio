@@ -3,10 +3,11 @@ import { useDispatch } from "react-redux";
 
 import { projectsRequest } from "../../store/modules/Project/actions";
 
-import Aside from "../../components/Admin/Aside";
-import PostsEdit from "../../components/Admin/PostsEdit";
-import PostsList from "../../components/Admin/PostsList";
 import Main from "../../components/Main";
+
+import Aside from "../../components/Admin/Aside";
+import ProjectsForm from "../../components/Admin/ProjectsForm";
+import ProjectsList from "../../components/Admin/ProjectsList";
 
 import { Container } from "./styles";
 
@@ -25,8 +26,8 @@ function Admin() {
     <Main>
       <Aside />
       <Container>
-        <PostsEdit />
-        <PostsList />
+        <ProjectsForm />
+        <ProjectsList />
       </Container>
     </Main>
   );

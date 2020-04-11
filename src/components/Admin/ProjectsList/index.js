@@ -3,17 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { Project, Image, Content } from "./styles";
 
-import PostListContainer from "../PostListContainer";
+import ProjectsListListContainer from "../ProjectsListListContainer";
 
 import { MdEdit } from "react-icons/md";
 
-export default function PostList() {
+export default function ProjectsList() {
   const dispatch = useDispatch();
 
-  const { filter_data } = useSelector(state => state.tags);
+  const { filter_data } = useSelector((state) => state.tags);
 
   const { projects, has_search_item, search_items } = useSelector(
-    state => state.project
+    (state) => state.project
   );
 
   const allProjectsOrWithFilter = useMemo(() => {
@@ -27,8 +27,8 @@ export default function PostList() {
 
   if (has_search_item) {
     return (
-      <PostListContainer>
-        {search_items.map(project => (
+      <ProjectsListListContainer>
+        {search_items.map((project) => (
           <Project>
             <Image>
               <button onClick={() => handleClick(project)}>
@@ -42,13 +42,13 @@ export default function PostList() {
             </Content>
           </Project>
         ))}
-      </PostListContainer>
+      </ProjectsListListContainer>
     );
   }
 
   return (
-    <PostListContainer>
-      {allProjectsOrWithFilter.map(project => (
+    <ProjectsListListContainer>
+      {allProjectsOrWithFilter.map((project) => (
         <Project>
           <Image>
             <button onClick={() => handleClick(project)}>
@@ -62,6 +62,6 @@ export default function PostList() {
           </Content>
         </Project>
       ))}
-    </PostListContainer>
+    </ProjectsListListContainer>
   );
 }
