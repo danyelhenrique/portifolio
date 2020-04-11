@@ -60,9 +60,9 @@ function* projectUpdate(data) {
 
 function* projectSearch(data) {
   try {
-    const { search } = data.payload.title;
+    const { title } = data.payload;
 
-    const clearTitle = search.trim().toLowerCase();
+    const clearTitle = title.trim().toLowerCase();
 
     const response = yield call(Api, `/search?name=${clearTitle}`);
 
