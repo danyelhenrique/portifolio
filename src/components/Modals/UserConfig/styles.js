@@ -6,8 +6,8 @@ export const Section = styled.section`
   justify-content: center;
   align-items: center;
 
-  opacity: ${props => (props.isOpen ? 1 : 0)};
-  pointer-events: ${props => (props.isOpen ? "all" : "none")};
+  opacity: ${(props) => (props.isOpen ? 1 : 0)};
+  pointer-events: ${(props) => (props.isOpen ? "all" : "none")};
 
   transition: all 1s ease;
 
@@ -38,6 +38,31 @@ export const Container = styled.div`
     0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, 0.035),
     0 22.3px 17.9px rgba(0, 0, 0, 0.042), 0 41.8px 33.4px rgba(0, 0, 0, 0.05),
     0 100px 80px rgba(0, 0, 0, 0.07);
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #11152b;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #272834;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: ${lighten(0.1, "#11152b")};
+  }
+
+  @media screen and (max-width: 1000px) {
+    height: 100vh;
+    width: 90%;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin: 0 auto;
+  }
 
   form {
     justify-content: normal;
@@ -81,6 +106,12 @@ export const Avatar = styled.div`
   justify-content: space-between;
   flex-direction: row-reverse;
 
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
   img {
     height: 150px;
     width: 150px;
@@ -99,6 +130,10 @@ export const Avatar = styled.div`
     border: none;
     align-self: flex-start;
     cursor: pointer;
+
+    @media screen and (max-width: 1000px) {
+      align-self: flex-end;
+    }
 
     svg {
       color: #9c9c9c;

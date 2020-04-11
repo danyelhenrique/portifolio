@@ -23,6 +23,14 @@ export const Container = styled.aside`
   top: 0;
   left: 0;
 
+  min-width: 340px;
+
+  @media screen and (max-width: 1000px) {
+    position: static;
+    margin: 0 auto;
+    width: 90%;
+  }
+
   form {
     display: flex;
     width: 100%;

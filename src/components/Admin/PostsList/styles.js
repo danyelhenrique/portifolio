@@ -10,6 +10,13 @@ export const Project = styled.div`
   text-align: center;
 
   height: 250px;
+
+  @media screen and (max-width: 1300px) {
+    flex-direction: column;
+    border-bottom: 1px solid #dedede;
+    padding: 30px 0;
+    height: auto;
+  }
 `;
 
 export const Image = styled.div`
