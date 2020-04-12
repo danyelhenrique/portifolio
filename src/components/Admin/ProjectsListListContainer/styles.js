@@ -9,13 +9,12 @@ export const Filters = styled.div`
   top: 0;
 
   z-index: 10;
-  padding: 10px 0px;
 
   background: #11152b;
-  padding: 20px;
 
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
+  height: 60px;
+  justify-content: center;
+  padding: 0 20px;
 `;
 
 export const Search = styled.div`
@@ -48,7 +47,6 @@ export const Search = styled.div`
 
 export const FilterContainer = styled.div`
   display: flex;
-  margin: 10px 0;
   flex-wrap: wrap;
 `;
 
