@@ -14,7 +14,6 @@ export default function SearchContainer() {
   const [showInput, setShowInput] = useState(false);
 
   const dispatch = useDispatch();
-  const { has_search_item } = useSelector((state) => state.project);
 
   function handleChange({ title }, { reset }) {
     dispatch(projectSearchRequest({ title }));

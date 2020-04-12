@@ -16,6 +16,9 @@ export default function ProjectsListListContainer({ children }) {
 
   const { has_search_item } = useSelector((state) => state.project);
 
+  function handleRemovefilter() {
+    dispatch(filterTagItemRemove());
+  }
   return (
     <>
       <Filters background={has_search_item}>
@@ -23,7 +26,7 @@ export default function ProjectsListListContainer({ children }) {
         <FilterContainer>
           {filter_tag.map((filter) => (
             <Filter>
-              <button type="button" onClick={() => filterTagItemRemove()}>
+              <button type="button" onClick={() => handleRemovefilter()}>
                 <MdDelete />
                 <span> {filter.name || ""}</span>
               </button>
