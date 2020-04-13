@@ -31,8 +31,25 @@ export const Container = styled.div`
     textarea {
       resize: vertical;
       border: 4px double rgb(0, 0, 0);
-      color: #000;
       outline: none;
+      background: #2f2f33;
+      color: #dedede;
+
+      ::-webkit-scrollbar {
+        width: 16px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #f7f7f7;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: ${darken(0.3, "#f7f7f7")};
+      }
     }
 
     label {

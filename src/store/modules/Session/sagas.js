@@ -44,6 +44,7 @@ function* verifySession() {
     yield put(verifySessionSuccess());
   } catch (e) {
     yield put(verifySessionFailure());
+    yield history.push("/admin/session");
   }
 }
 

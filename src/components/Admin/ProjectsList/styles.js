@@ -67,6 +67,7 @@ export const Content = styled.div`
     margin: 0;
   }
 
-  span {
+  h5 {
+    color: #777676;
   }
 `;

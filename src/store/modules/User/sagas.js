@@ -4,7 +4,7 @@ import {
   updateUserSuccess,
   updateUserFailure,
   storeUserSuccess,
-  storeUserFailure
+  storeUserFailure,
 } from "./actions";
 
 import Api from "../../../services/api";
@@ -15,8 +15,6 @@ function* userUpdate(data) {
     if (!payload.password) {
       delete payload.password;
     }
-
-    console.tron.log(payload);
 
     const response = yield call(Api.put, "/users", payload);
 
@@ -40,5 +38,5 @@ function* userStore(data) {
 
 export default all([
   takeLatest("@USER/USER_UPDATE_REQUEST", userUpdate),
-  takeLatest("@USER/USER_STORE_REQUEST", userStore)
+  takeLatest("@USER/USER_STORE_REQUEST", userStore),
 ]);
