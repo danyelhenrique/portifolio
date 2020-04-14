@@ -1,4 +1,5 @@
 import produce from "immer";
+import history from "../../../services/history";
 
 const INITIAL_STATE = {
   token: null,
@@ -17,6 +18,12 @@ function userReducer(state = INITIAL_STATE, action) {
       case "@SESSION/SESSION_VERIFY_FAILURE": {
         draftState.token = {};
         draftState.isloggedin = false;
+        break;
+      }
+      case "@SESSION/SESSION_LOGOUT": {
+        draftState.token = {};
+        draftState.isloggedin = false;
+        history.push("/");
         break;
       }
       default:

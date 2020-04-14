@@ -37,3 +37,9 @@ export function verifySessionFailure() {
     type: "@SESSION/SESSION_VERIFY_FAILURE",
   };
 }
+
+export function sessionLogout() {
+  return {
+    type: "@SESSION/SESSION_LOGOUT",
+  };
+}

@@ -50,7 +50,9 @@ export const FilterContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-export const Filter = styled.div`
+export const Filter = styled.div.attrs({
+  id: "fitler",
+})`
   border: 1px solid #6a6a6f;
   position: relative;
   height: 24px;

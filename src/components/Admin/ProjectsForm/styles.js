@@ -68,7 +68,9 @@ export const Container = styled.div`
   }
 `;
 
-export const Section = styled.section`
+export const Section = styled.section.attrs({
+  id: "section-form",
+})`
   background: #fff;
   border-radius: 5px;
   width: 100%;

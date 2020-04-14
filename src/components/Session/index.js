@@ -54,7 +54,10 @@ export default function Session() {
             Password:
             <MdVpnKey size={24} />
             <Input type={passwordType} name="password" />
-            <PasswordIcon onClick={() => setShowPassword(!showPassword)}>
+            <PasswordIcon
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+            >
               {!showPassword ? <MdLock size={24} /> : <MdLockOpen size={24} />}
             </PasswordIcon>
           </label>

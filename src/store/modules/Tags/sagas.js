@@ -5,14 +5,16 @@ import {
   takeLatest,
   select,
   cancel,
-  cancelled
+  cancelled,
 } from "redux-saga/effects";
+
+import jump from "jump.js";
 
 import {
   filterTagSuccess,
   filterTagFailure,
   tagListSuccess,
-  tagListFailure
+  tagListFailure,
 } from "./actions";
 
 import Api from "../../../services/api";
@@ -21,10 +23,10 @@ function* filterRequest(data) {
   try {
     const { filter } = data.payload;
 
-    const { filter_tag } = yield select(state => state.tags);
+    const { filter_tag } = yield select((state) => state.tags);
 
     const fitlerExists = filter_tag.some(
-      filterItem => filterItem._id === filter._id
+      (filterItem) => filterItem._id === filter._id
     );
 
     if (fitlerExists) {
@@ -32,12 +34,13 @@ function* filterRequest(data) {
     }
 
     const response = yield call(Api.get, "/filter", {
-      params: { filter: filter.name }
+      params: { filter: filter.name },
     });
 
     const dataWithFilter = { ...response.data, filter };
 
     yield put(filterTagSuccess(dataWithFilter));
+    yield jump("#fitler");
   } catch (e) {
     yield put(filterTagFailure());
   } finally {
@@ -59,5 +62,5 @@ function* taglistRequest() {
 
 export default all([
   takeLatest("@TAG/FILTER_TAG_ITEM_REQUEST", filterRequest),
-  takeLatest("@TAG/TAG_LIST_REQUEST", taglistRequest)
+  takeLatest("@TAG/TAG_LIST_REQUEST", taglistRequest),
 ]);

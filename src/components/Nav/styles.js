@@ -16,7 +16,7 @@ const sliderMenuOpen = keyframes`
 const sliderMenuClose = keyframes`
   from {
     transform: translateX(0%);
-    opacity: 1;
+    opacity: 0;
   }
 
   to {
@@ -41,13 +41,13 @@ export const NavContainer = styled.nav`
 
   padding: 20px;
 
-  ${props =>
+  ${(props) =>
     props.openMenu &&
     css`
       animation: 1s ease-in-out ${sliderMenuOpen} forwards;
     `}
 
-  ${props =>
+  ${(props) =>
     !props.openMenu &&
     css`
       animation: 1s ease-in-out ${sliderMenuClose} forwards;
@@ -68,12 +68,19 @@ export const NavContainer = styled.nav`
       border-bottom: 1px solid #f64747;
       padding: 10px 0;
 
-      a {
+      a,
+      button {
         text-decoration: none;
         display: block;
         color: #cec9c9;
         margin: 0 10px;
         height: 24px;
+        cursor: pointer;
+      }
+
+      button {
+        background: none;
+        border: none;
       }
     }
   }

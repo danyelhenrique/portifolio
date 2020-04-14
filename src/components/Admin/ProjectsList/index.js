@@ -1,5 +1,7 @@
 import React, { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { projectEdit } from "../../../store/modules/Project/actions";
+import jump from "jump.js";
 
 import { Project, Image, Content } from "./styles";
 
@@ -22,7 +24,8 @@ export default function ProjectsList() {
 
   function handleClick(project) {
     const payload = { project, isEdit: true };
-    dispatch({ type: "@PROJECT/PROJECT_EDIT", payload });
+    dispatch(projectEdit(payload));
+    jump("#section-form");
   }
 
   if (has_search_item) {

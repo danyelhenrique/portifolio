@@ -24,6 +24,10 @@ function userReducer(state = INITIAL_STATE, action) {
         draftState.user = {};
         break;
       }
+      case "@SESSION/SESSION_LOGOUT": {
+        draftState.user = {};
+        break;
+      }
       default:
         return state;
     }
