@@ -6,7 +6,6 @@ import { projectsRequest } from "../../store/modules/Project/actions";
 
 import Hero from "../../components/Hero";
 import Projects from "../../components/Projects";
-import Contact from "../../components/Contact";
 import Main from "../../components/Main";
 
 function Home() {
@@ -20,7 +19,6 @@ function Home() {
     <Main>
       <Hero />
       <Projects />
-      <Contact />
     </Main>
   );
 }

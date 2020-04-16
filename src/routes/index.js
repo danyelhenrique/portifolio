@@ -6,6 +6,7 @@ import Route from "./Router";
 import Home from "../pages/Home/index";
 import Admin from "../pages/Admin";
 import Session from "../pages/Session";
+import Contact from "../pages/Contact";
 
 export default () => {
   return (
@@ -18,6 +19,9 @@ export default () => {
       </Route>
       <Route path="/admin/session">
         <Session />
+      </Route>
+      <Route path="/contact">
+        <Contact />
       </Route>
       <Route path="*">
         <Redirect to="/" />
