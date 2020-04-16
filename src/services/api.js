@@ -1,7 +1,8 @@
 import Axios from "axios";
 
+const URL = "https://portifolio-backend.herokuapp.com/";
 const axios = Axios.create({
-  baseURL: "http://localhost:3338",
+  baseURL: URL,
 });
 
 export default axios;
