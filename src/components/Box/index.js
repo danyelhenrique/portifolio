@@ -35,6 +35,7 @@ export default function Posts({ project }) {
         <a
           href={project.github_url}
           target="_blank"
+          rel="noopener noreferrer"
           style={{ cursor: !project.github_url && "not-allowed" }}
         >
           Github
@@ -42,6 +43,7 @@ export default function Posts({ project }) {
         <a
           href={project.deploy_url}
           target="_blank"
+          rel="noopener noreferrer"
           style={{ cursor: !project.deploy_url && "not-allowed" }}
         >
           Demo

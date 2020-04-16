@@ -12,7 +12,7 @@ export default ({ isPrivate, children, ...rest }) => {
     if (isPrivate) {
       dispatch(verifySessionRequest());
     }
-  }, [isPrivate]);
+  }, [isPrivate, dispatch]);
 
   if (!token && isPrivate) {
     return (

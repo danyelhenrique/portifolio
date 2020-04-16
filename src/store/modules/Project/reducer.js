@@ -1,16 +1,5 @@
 import produce from "immer";
 
-const INITIAL_PROJECT_ITEM = {
-  project_item: {
-    _id: null,
-    background_url: "",
-    title: "",
-    description: "",
-    deploy_url: "",
-    github_url: "",
-  },
-};
-
 const INITIAL_STATE = {
   isLoading: true,
   isEdit: false,

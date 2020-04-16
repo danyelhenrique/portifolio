@@ -20,7 +20,7 @@ function Admin() {
 
   useEffect(() => {
     dispatch(projectsRequest());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Main>

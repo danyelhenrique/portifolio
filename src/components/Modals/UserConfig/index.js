@@ -11,7 +11,7 @@ import { MdClose } from "react-icons/md";
 import { Section, Container, Avatar, Button } from "./styles";
 
 function UserConfig({ isOpen, handleModal }) {
-  const { user } = useSelector(state => state.user);
+  const { user } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -34,7 +34,7 @@ function UserConfig({ isOpen, handleModal }) {
             <MdClose size={32} />
           </button>
           <h2>{user.name} </h2>
-          <img src={user.avatar_url} />
+          <img src={user.avatar_url} alt="avatar" />
         </Avatar>
         <Form initialData={user} handleForm={handleForm}>
           <label htmlFor="avatar">

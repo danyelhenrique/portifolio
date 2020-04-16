@@ -13,7 +13,7 @@ function Home() {
 
   useEffect(() => {
     dispatch(projectsRequest());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Main>

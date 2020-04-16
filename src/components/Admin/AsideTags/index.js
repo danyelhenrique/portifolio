@@ -26,7 +26,7 @@ function AsideTags() {
 
   useEffect(() => {
     dispatch(tagListRequest());
-  }, []);
+  }, [dispatch]);
 
   function handleTag(tagItem) {
     dispatch(filterTagRequest({ filter: tagItem }));
