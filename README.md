@@ -57,3 +57,4 @@ This app features all the latest tools and practices in mobile development!
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](https://opensource.org/licenses/MIT) page for details.
+
